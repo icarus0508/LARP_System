@@ -404,7 +404,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 130297253}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 515817556}
+        m_MethodName: NextPage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &130297253
@@ -1321,6 +1332,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ca7c4ebf59d31c45b18ad86939aafc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NextPageButton: {fileID: 130297250}
+  PrePageButton: {fileID: 1688061843}
+  CurrentPage: {fileID: 1589374285}
 --- !u!1 &559911176
 GameObject:
   m_ObjectHideFlags: 0
@@ -2066,6 +2080,71 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 856807649}
   m_CullTransparentMesh: 0
+--- !u!1 &915251174
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 915251175}
+  - component: {fileID: 915251176}
+  - component: {fileID: 915251177}
+  m_Layer: 5
+  m_Name: Script_GO
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &915251175
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915251174}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1589374286}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &915251176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915251174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43ef9f3058f8d643beb41edd4e97763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentPage: {fileID: 1589374285}
+  NextPage: {fileID: 113522049}
+  StartSystemButton: {fileID: 1914353210}
+--- !u!114 &915251177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915251174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82f0594b3225a9b47bf58f3d52a12300, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DataIsReady: 0
 --- !u!1 &965728354
 GameObject:
   m_ObjectHideFlags: 0
@@ -3485,6 +3564,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7809a584b935e50418bbcf485a6da883, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CurrentPage: {fileID: 113522049}
+  NextPage: {fileID: 1558834630}
   playerIn_GO: {fileID: 965728354}
   image_GO: {fileID: 643025832}
   CameraCaputre_Go: {fileID: 1146707365}
@@ -3707,7 +3788,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1589374286
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3721,6 +3802,7 @@ RectTransform:
   m_Children:
   - {fileID: 1914353211}
   - {fileID: 254792808}
+  - {fileID: 915251175}
   m_Father: {fileID: 559911180}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3863,7 +3945,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1656889128
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4006,7 +4088,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1688061846}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 515817556}
+        m_MethodName: LastPage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1688061846

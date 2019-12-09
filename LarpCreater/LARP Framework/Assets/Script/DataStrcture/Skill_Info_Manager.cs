@@ -26,6 +26,8 @@ public class Skill_Info_Manager : MonoBehaviour
 {
     private string SkillIconDirectionPath = ".\\Assets\\Images\\Skill\\";
     static public List<Skill_info> Skill_List = new List<Skill_info>();
+
+    public bool DataIsReady = false;
    
     void LoadSkill()
     {
@@ -62,6 +64,8 @@ public class Skill_Info_Manager : MonoBehaviour
         }
 
         excelRead.Close();
+
+        DataIsReady = true;
     }
     // Start is called before the first frame update
     void Start()

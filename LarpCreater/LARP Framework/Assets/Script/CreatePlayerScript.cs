@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 using UnityEditor;
 
-public class CreatePlayerScript : MonoBehaviour
+public class CreatePlayerScript : BasePageScript
 {
     public GameObject playerIn_GO;
     private Player_Info playerInfo;
