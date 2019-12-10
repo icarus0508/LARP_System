@@ -7,6 +7,8 @@ public class StartPageScript : BasePageScript
 
     public GameObject StartSystemButton = null;
 
+    public GameObject TransmitPage_GO = null;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,5 +30,8 @@ public class StartPageScript : BasePageScript
         return true;
     }
 
-
+    public void StartGame()
+    {
+        TransmitPage_GO.GetComponentInChildren<TransmitPageScript>(true).NextPage();
+    }
 }
