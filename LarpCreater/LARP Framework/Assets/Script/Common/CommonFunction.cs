@@ -58,6 +58,40 @@ public class CommonFunction : MonoBehaviour
         return false;
     }
 
+    public static bool IsRankAve(string rank, string avarank)
+    {
+        if (avarank == "C")
+        {
+            if (rank == "C" || rank == "B" || rank == "A" || rank == "S")
+            { return true; }
+        }
+        if (avarank == "B")
+        {
+            if ( rank == "B" || rank == "A" || rank == "S")
+            { return true; }
+        }
+        if (avarank == "A")
+        {
+            if ( rank == "A" || rank == "S")
+            { return true; }
+        }
+        if (avarank == "S")
+        {
+            if ( rank == "S")
+            { return true; }
+        }
+
+        return false;
+    }
+
+    public static bool IsSSkill(string avarank)
+    {
+        if (avarank == "S")
+            return true;
+
+        return false;
+    }
+
     public void SwitchPage(ref GameObject ClosedObj, ref GameObject OpenObj)
     {
         ClosedObj.SetActive(false);

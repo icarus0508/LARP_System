@@ -19,6 +19,11 @@ public class Skill_info
     public string ArrowBuff;
     public string ThrowBuff;
     public string AvaRank;
+    public string MaxCost ;
+
+    public int PreSkillIndex = -1;
+    public int PostSkillIndex = -1;
+    
 
 }
 
@@ -56,6 +61,7 @@ public class Skill_Info_Manager : MonoBehaviour
             tSkillInfo.ArrowBuff = result.Tables[set].Rows[i][8].ToString();
             tSkillInfo.ThrowBuff = result.Tables[set].Rows[i][9].ToString();
             tSkillInfo.AvaRank = result.Tables[set].Rows[i][10].ToString();
+            tSkillInfo.MaxCost = result.Tables[set].Rows[i][11].ToString();
 
             Texture2D tex = CommonFunction.LoadPNG(SkillIconDirectionPath + tSkillInfo.ImageName);
             tSkillInfo.Image = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(0, 0));
@@ -65,8 +71,26 @@ public class Skill_Info_Manager : MonoBehaviour
 
         excelRead.Close();
 
+        for(int i=0;i<Skill_List.Count;i++)
+        {
+            if(Skill_List[i].PreSkillName!=null)
+            {
+                for(int j=0;j<Skill_List.Count;j++)
+                {
+                    if(Skill_List[j].Name ==  Skill_List[i].PreSkillName)
+                    {
+                        Skill_List[i].PreSkillIndex = j;
+                        Skill_List[j].PostSkillIndex = i;
+                    }
+                }
+            }
+        }
+
+
+
         DataIsReady = true;
     }
+  
     // Start is called before the first frame update
     void Start()
     {

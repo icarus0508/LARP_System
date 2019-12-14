@@ -13,6 +13,8 @@ public class ChooseClassPageScript : BasePageScript
     public GameObject AClass_Btn = null;
     public GameObject MClass_Btn = null;
 
+    public GameObject ClinkBtn_GO = null;
+
     public Material DefaultMat = null;
     public Material GrayScaleMat = null;
 
@@ -45,6 +47,15 @@ public class ChooseClassPageScript : BasePageScript
         if (playerInfo.Clasz == "M")
         {
             MClass_Btn.GetComponent<Image>().material = DefaultMat;
+        }
+
+        if(playerInfo.withHelmet)
+        {
+            ClinkBtn_GO.SetActive(true);
+        }
+        else
+        {
+            ClinkBtn_GO.SetActive(false);
         }
     }
     private void OnEnable()
@@ -88,5 +99,20 @@ public class ChooseClassPageScript : BasePageScript
         WClass_Btn.GetComponent<Image>().material = GrayScaleMat;
         AClass_Btn.GetComponent<Image>().material = GrayScaleMat;
         MClass_Btn.GetComponent<Image>().material = DefaultMat;
+    }
+
+    public void OnClickWithHelmet()
+    {
+        if(playerInfo.withHelmet)
+        {
+            ClinkBtn_GO.SetActive(false);
+            playerInfo.withHelmet = false;
+        }
+        else
+        {
+            ClinkBtn_GO.SetActive(true);
+            playerInfo.withHelmet = true;
+        }
+       
     }
 }

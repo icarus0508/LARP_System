@@ -9,7 +9,15 @@ public class Player_Info : MonoBehaviour
     public string Rank = "C";
     public string Clasz = "W";
     public string Sided = "BI";
+    public bool withHelmet = false;
     public List<int> SkillIndexes = new List<int>();
+
+    public int skillPointAva = 0;
+    public int HP = 0;
+    public int SuperPointAva = 0;
+
+    public int skillPointAvaMax = 0;
+    public int SuperPointAvaMax = 0;
     // Start is called before the first frame update
     void Start()
     {

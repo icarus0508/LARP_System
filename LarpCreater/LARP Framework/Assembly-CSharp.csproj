@@ -67,8 +67,10 @@
     <Compile Include="Assets\Script\ChooseClassPageScript.cs" />
     <Compile Include="Assets\Script\ChooseRankPageScript.cs" />
     <Compile Include="Assets\Script\ChooseSidePageScript.cs" />
+    <Compile Include="Assets\Script\ChooseSkillPageScript.cs" />
     <Compile Include="Assets\Script\Common\CommonFunction.cs" />
     <Compile Include="Assets\Script\Common\ExcelLoader.cs" />
+    <Compile Include="Assets\Script\Common\SkillButtonScript.cs" />
     <Compile Include="Assets\Script\Common\WebCamera.cs" />
     <Compile Include="Assets\Script\CreatePlayerScript.cs" />
     <Compile Include="Assets\Script\DataStrcture\Player_Info.cs" />
