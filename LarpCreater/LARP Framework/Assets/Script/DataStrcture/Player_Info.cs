@@ -15,6 +15,9 @@ public class Player_Info : MonoBehaviour
     public int skillPointAva = 0;
     public int HP = 0;
     public int SuperPointAva = 0;
+    public int ArrowCount = 0;
+    public int ThrowCount = 0;
+    public int MagicCount = 0;
 
     public int skillPointAvaMax = 0;
     public int SuperPointAvaMax = 0;

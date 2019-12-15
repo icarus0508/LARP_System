@@ -61,8 +61,17 @@ public class SkillButtonScript : MonoBehaviour
             if (playerInfo.skillPointAva <= 0) return;
         }
             
-
+        if(Skill_Info_Manager.Skill_List[SkillListIndex].PreSkillIndex!=-1)
+        {
+            int indexOfPreSkillInCurrentPlayerSkillList = playerInfo.SkillIndexes.IndexOf(Skill_Info_Manager.Skill_List[SkillListIndex].PreSkillIndex);
+           if (indexOfPreSkillInCurrentPlayerSkillList != -1)
+            {
+                playerInfo.SkillIndexes.RemoveAt(indexOfPreSkillInCurrentPlayerSkillList);
+            }
+        }
+            
         playerInfo.SkillIndexes.Add(SkillListIndex);
+
         tAvaSkill++;
         SkillAva.GetComponent<Text>().text = tAvaSkill.ToString();
 
@@ -71,20 +80,20 @@ public class SkillButtonScript : MonoBehaviour
         else
             playerInfo.skillPointAva--;
 
+        if (Skill_Info_Manager.Skill_List[SkillListIndex].PreSkillIndex != -1)
+        {
+            SkillMainImgGO.GetComponent<Image>().sprite = Skill_Info_Manager.Skill_List[SkillListIndex].Image;
+            SkillNameGO.GetComponent<Text>().text = Skill_Info_Manager.Skill_List[SkillListIndex].Name;
+            SkillDescription.GetComponent<Text>().text = Skill_Info_Manager.Skill_List[SkillListIndex].Description;
+        }
+
         if (Skill_Info_Manager.Skill_List[SkillListIndex].PostSkillIndex!=-1)
         {
             int PostSkillINdex = Skill_Info_Manager.Skill_List[SkillListIndex].PostSkillIndex;
-
-            SkillMainImgGO.GetComponent<Image>().sprite = Skill_Info_Manager.Skill_List[PostSkillINdex].Image;
-            SkillNameGO.GetComponent<Text>().text = Skill_Info_Manager.Skill_List[PostSkillINdex].Name;
-            SkillDescription.GetComponent<Text>().text = Skill_Info_Manager.Skill_List[PostSkillINdex].Description;
-
-            SkillListIndex = PostSkillINdex;
+            SkillListIndex = PostSkillINdex;      
         }
-        else
-        {
-            SkillMainImgGO.GetComponent<Image>().material = DefaultMat;
-        }
+
+        SkillMainImgGO.GetComponent<Image>().material = DefaultMat;
     }
 
     public void Reset()

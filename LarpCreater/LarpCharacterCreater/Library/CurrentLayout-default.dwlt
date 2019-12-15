@@ -47,7 +47,7 @@ MonoBehaviour:
   m_MinSize: {x: 685, y: 494}
   m_MaxSize: {x: 14006, y: 14044}
   vertical: 0
-  controlID: 97
+  controlID: 125
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -218,7 +218,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 494}
   m_MaxSize: {x: 10002, y: 14044}
   vertical: 1
-  controlID: 98
+  controlID: 55
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -243,7 +243,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 222}
   m_MaxSize: {x: 8006, y: 4022}
   vertical: 0
-  controlID: 99
+  controlID: 101
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -310,19 +310,19 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/material/Materials
+    - Assets/Script
   m_ViewMode: 1
   m_StartGridSize: 50
   m_LastFolders:
-  - Assets/material/Materials
+  - Assets/Script
   m_LastFoldersGridSize: 50
   m_LastProjectPath: D:\LARP_System\LarpCreater\LarpCharacterCreater
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: b8320000
-    m_LastClickedID: 12984
+    m_SelectedIDs: 84320000
+    m_LastClickedID: 12932
     m_ExpandedIDs: 00000000482d0000ca2d0000c82f00001630000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -472,9 +472,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 3c360000
-      m_LastClickedID: 13884
-      m_ExpandedIDs: 76fbffffb0330000863400001e35000038350000
+      m_SelectedIDs: ba360000
+      m_LastClickedID: 14010
+      m_ExpandedIDs: 76fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 

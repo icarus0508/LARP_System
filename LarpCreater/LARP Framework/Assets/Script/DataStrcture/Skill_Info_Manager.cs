@@ -30,7 +30,26 @@ public class Skill_info
 public class Skill_Info_Manager : MonoBehaviour
 {
     private string SkillIconDirectionPath = ".\\Assets\\Images\\Skill\\";
+    private string UIDirectionPath = ".\\Assets\\Images\\UI\\";
     static public List<Skill_info> Skill_List = new List<Skill_info>();
+    public static Sprite W_ClaszImg = null;
+    public static Sprite A_ClaszImg = null;
+    public static Sprite M_ClaszImg = null;
+    public static Sprite N_ClaszImg = null;
+    public static Sprite W_ClaszSkillImg = null;
+    public static Sprite A_ClaszSkillImg = null;
+    public static Sprite M_ClaszSkillImg = null;
+    public static Sprite S_RankImg = null;
+    public static Sprite A_RankImg = null;
+    public static Sprite B_RankImg = null;
+    public static Sprite C_RankImg = null;
+    public static Sprite N_RankImg = null;
+    public static Sprite Side_BIImg = null;
+    public static Sprite Side_ADImg = null;
+    public static Sprite Side_JDImg = null;
+    public static Sprite Side_DNImg = null;
+    public static Sprite Side_NTImg = null;
+
 
     public bool DataIsReady = false;
    
@@ -86,11 +105,34 @@ public class Skill_Info_Manager : MonoBehaviour
             }
         }
 
+        W_ClaszImg = CreateSpriteByImg(UIDirectionPath + "戰_圓形.png");
+        A_ClaszImg = CreateSpriteByImg(UIDirectionPath + "弓_圓形.png");
+        M_ClaszImg = CreateSpriteByImg(UIDirectionPath + "法_圓形.png");
+        N_ClaszImg = CreateSpriteByImg(UIDirectionPath + "民_圓形.png");
+        W_ClaszSkillImg =CreateSpriteByImg(SkillIconDirectionPath + "硬甲.png");
+        A_ClaszSkillImg = CreateSpriteByImg(SkillIconDirectionPath + "韌甲.png");
+        M_ClaszSkillImg = CreateSpriteByImg(SkillIconDirectionPath + "博學者.png");
 
+        S_RankImg = CreateSpriteByImg(UIDirectionPath + "OuterFrameS.png");
+        A_RankImg = CreateSpriteByImg(UIDirectionPath + "OuterFrameA.png");
+        B_RankImg = CreateSpriteByImg(UIDirectionPath + "OuterFrameB.png");
+        C_RankImg = CreateSpriteByImg(UIDirectionPath + "OuterFrameC.png");
+        N_RankImg = CreateSpriteByImg(UIDirectionPath + "OuterFrameN.png");
+
+        Side_BIImg = CreateSpriteByImg(UIDirectionPath + "RaceEmpire.png");
+        Side_ADImg = CreateSpriteByImg(UIDirectionPath + "RaceHorde.png");
+        Side_JDImg = CreateSpriteByImg(UIDirectionPath + "RaceAsia.png");
+        Side_DNImg = CreateSpriteByImg(UIDirectionPath + "RaceMonster.png");
+        Side_NTImg = CreateSpriteByImg(UIDirectionPath + "RaceEmpire.png");
 
         DataIsReady = true;
     }
   
+    private Sprite CreateSpriteByImg(string imgPath)
+    {
+        Texture2D tImg = CommonFunction.LoadPNG(imgPath);
+        return Sprite.Create(tImg, new Rect(0, 0, tImg.width, tImg.height), new Vector2(0, 0));
+    }
     // Start is called before the first frame update
     void Start()
     {

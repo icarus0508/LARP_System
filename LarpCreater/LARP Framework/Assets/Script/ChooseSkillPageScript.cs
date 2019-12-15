@@ -18,6 +18,7 @@ public class ChooseSkillPageScript : BasePageScript
 
     public GameObject SkillPointLeftGO;
 
+    public GameObject ChangeToSBtnGO;
     public GameObject ChangeBtnToSGO;
     public GameObject ChangeBtnToNormalGO;
 
@@ -145,6 +146,15 @@ public class ChooseSkillPageScript : BasePageScript
     {
         // TestScrollBar();
         InitialSkillList();
+
+        if(playerInfo.Rank =="S")
+        {
+            ChangeToSBtnGO.SetActive(true);
+        }
+        else
+        {
+            ChangeToSBtnGO.SetActive(false);
+        }
     }
 
     // Update is called once per frame

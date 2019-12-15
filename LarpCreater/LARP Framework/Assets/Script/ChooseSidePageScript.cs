@@ -135,4 +135,6 @@ public class ChooseSidePageScript : BasePageScript
         DN_Btn.GetComponent<Image>().material = GrayScaleMat;
         NT_Btn.GetComponent<Image>().material = DefaultMat;
     }
+
+    
 }

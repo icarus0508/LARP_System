@@ -77,6 +77,7 @@
     <Compile Include="Assets\Script\DataStrcture\PlayerClass_Info.cs" />
     <Compile Include="Assets\Script\DataStrcture\Race_Info.cs" />
     <Compile Include="Assets\Script\DataStrcture\Skill_Info_Manager.cs" />
+    <Compile Include="Assets\Script\PlayerCardPageScript.cs" />
     <Compile Include="Assets\Script\StartPageScript.cs" />
     <Compile Include="Assets\Script\TransmitPageScript.cs" />
     <None Include="Assets\Shader\GrayscaleShader.shader" />
