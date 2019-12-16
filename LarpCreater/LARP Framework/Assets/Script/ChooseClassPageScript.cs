@@ -14,6 +14,7 @@ public class ChooseClassPageScript : BasePageScript
     public GameObject MClass_Btn = null;
 
     public GameObject ClinkBtn_GO = null;
+    public GameObject ClickBtnHeavy_GO = null;
 
     public Material DefaultMat = null;
     public Material GrayScaleMat = null;
@@ -136,5 +137,19 @@ public class ChooseClassPageScript : BasePageScript
             playerInfo.withHelmet = true;
         }
        
+    }
+
+    public void OnClickWithHeavyEquip()
+    {
+        if(playerInfo.withHeavyEquip)
+        {
+            ClickBtnHeavy_GO.SetActive(false);
+            playerInfo.withHeavyEquip = false;
+        }
+        else
+        {
+            ClickBtnHeavy_GO.SetActive(true);
+            playerInfo.withHeavyEquip = true;
+        }
     }
 }

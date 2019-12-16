@@ -76,6 +76,11 @@ public class PlayerCardPageScript : BasePageScript
             }
 
         }
+
+        if(playerInfo.withHeavyEquip)
+        {
+            playerInfo.HP += 1;
+        }
     }
     public void Initial()
     {

@@ -10,6 +10,7 @@ public class Player_Info : MonoBehaviour
     public string Clasz = "W";
     public string Sided = "BI";
     public bool withHelmet = false;
+    public bool withHeavyEquip = false;
     public List<int> SkillIndexes = new List<int>();
 
     public int skillPointAva = 0;
