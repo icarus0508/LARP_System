@@ -21,6 +21,10 @@ public class PlayerCardPageScript : BasePageScript
     public GameObject NamePlateGO;
     public GameObject SideImageGO;
     public GameObject ContinueHitGO;
+    public GameObject HeavyLoadGO;
+
+    public GameObject HPBarGO;
+    public GameObject PrefabsHPBarEelelment;
 
 
     // Start is called before the first frame update
@@ -46,6 +50,10 @@ public class PlayerCardPageScript : BasePageScript
         Initial();
     }
 
+    private void OnDisable()
+    {
+        
+    }
     private bool DecideIfSkillIsLast(int SkillIndex)
     {
 
@@ -53,28 +61,117 @@ public class PlayerCardPageScript : BasePageScript
 
     }
 
+    private int OperatingSkill(string InString ,int targetNumber)
+    {
+        CommonFunction.OperatorEnm fetchOperator = CommonFunction.ExtractOperator(InString);
+        int OutNumber = targetNumber;
+        string OutNumberString = InString;
+        switch (fetchOperator)
+        {
+            case CommonFunction.OperatorEnm.REPLACE:
+                OutNumber = int.Parse(OutNumberString);
+                break;
+            case CommonFunction.OperatorEnm.ADD:
+                OutNumberString=OutNumberString.Remove(0, 1);
+                OutNumber += int.Parse(OutNumberString);
+                break;
+            case CommonFunction.OperatorEnm.SUB:
+                OutNumberString = OutNumberString.Remove(0, 1);
+                OutNumber -= int.Parse(OutNumberString);
+                break;
+            case CommonFunction.OperatorEnm.MUL:
+                OutNumberString = OutNumberString.Remove(0, 1);
+                OutNumber *= int.Parse(OutNumberString);
+                break;
+            case CommonFunction.OperatorEnm.DIV:
+                OutNumberString = OutNumberString.Remove(0, 1);
+                OutNumber /= int.Parse(OutNumberString);
+                break;
+        }
+
+        return OutNumber;
+    }
+    private List<int> LateHandleSkillIndex = new List<int>();
     private void CalutlateFinialPlayerProperty()
     {
-        foreach(var s in playerInfo.SkillIndexes)
+        LateHandleSkillIndex.Clear();
+        foreach (var s in playerInfo.SkillIndexes)
         {
             string tempHP = Skill_Info_Manager.Skill_List[s].HPBuff;
-            if(tempHP!="")
+            if (tempHP != "")
             {
-                playerInfo.HP += int.Parse(tempHP);
+              
+                if (tempHP[0] == 'x' || tempHP[0] == 'X' || tempHP[0] == '/')
+                {
+                    LateHandleSkillIndex.Add(s);
+                }
+                else
+                {
+                    playerInfo.HP = OperatingSkill(tempHP, playerInfo.HP);
+                }
             }
 
             string tempArrow = Skill_Info_Manager.Skill_List[s].ArrowBuff;
-            if (tempArrow != "")
+            //Already 無限
+            if(playerInfo.ArrowCount !=-1 )
             {
-                playerInfo.ArrowCount += int.Parse(tempArrow);
+                if (tempArrow != "" && tempArrow != "無限")
+                {
+                   
+                    if (tempArrow[0] == 'x' || tempArrow[0] == 'X' || tempArrow[0] == '/')
+                    {
+                        LateHandleSkillIndex.Add(s);
+                    }
+                    else
+                    {
+                        playerInfo.ArrowCount = OperatingSkill(tempArrow, playerInfo.ArrowCount);
+                    }
+                }
+                if (tempArrow == "無限")
+                {
+                    playerInfo.ArrowCount = -1;//Stand for infinity
+                }
             }
+
 
             string tempThrow = Skill_Info_Manager.Skill_List[s].ThrowBuff;
             if (tempThrow != "")
             {
-                playerInfo.ThrowCount += int.Parse(tempThrow);
+                if (tempThrow[0] == 'x' || tempThrow[0] == 'X' || tempThrow[0] == '/')
+                {
+                    LateHandleSkillIndex.Add(s);
+                }
+                else
+                {
+                    playerInfo.ThrowCount = OperatingSkill(tempThrow, playerInfo.ThrowCount);
+                }
+                
             }
 
+            string tempMagic = Skill_Info_Manager.Skill_List[s].MPBuff;
+            if(tempMagic !="")
+            {
+                if(tempMagic[0]=='x' || tempMagic[0]=='X' || tempMagic[0] == '/')
+                {
+                    LateHandleSkillIndex.Add(s);
+                }
+                else
+                {
+                    playerInfo.MagicCount = OperatingSkill(tempMagic, playerInfo.MagicCount);
+                }
+                
+            }
+
+        }
+
+        //Late handle
+        foreach(var s in LateHandleSkillIndex)
+        {
+            string tempMagic = Skill_Info_Manager.Skill_List[s].MPBuff;
+            if(tempMagic != "")
+            {
+                playerInfo.MagicCount = OperatingSkill(tempMagic, playerInfo.MagicCount);
+            }
         }
 
         if(playerInfo.withHeavyEquip)
@@ -82,9 +179,54 @@ public class PlayerCardPageScript : BasePageScript
             playerInfo.HP += 1;
         }
     }
+    public void InitialHPBar()
+    {
+        int teSizX = -124;
+        for (int i=0;i<playerInfo.HP;i++)
+        {
+            GameObject tGO = Instantiate(PrefabsHPBarEelelment, new Vector2(teSizX,0), Quaternion.identity);
+            tGO.transform.SetParent(HPBarGO.transform, false);
+
+            teSizX += 24;
+        }
+
+        if(playerInfo.Sided!="NT")
+        {
+            GameObject tSpecitlGO = Instantiate(PrefabsHPBarEelelment, new Vector2(teSizX, 0), Quaternion.identity);
+            tSpecitlGO.transform.SetParent(HPBarGO.transform, false);
+            tSpecitlGO.transform.GetChild(0).gameObject.SetActive(false);
+            tSpecitlGO.transform.GetChild(1).gameObject.SetActive(true);
+        }
+
+        
+
+    }
+    public void InitPlayerSkillAndPropoertyGrid()
+    {
+        CalutlateFinialPlayerProperty();
+
+        HPGO.transform.GetChild(0).GetComponent<Text>().text = playerInfo.HP.ToString();
+        if (playerInfo.Sided != "NT")
+        {
+            HPGO.transform.GetChild(0).GetComponent<Text>().text += "+1";
+        }
+
+        ThorwGO.transform.GetChild(0).GetComponent<Text>().text = playerInfo.ThrowCount.ToString();
+
+        if(playerInfo.ArrowCount == -1) //無限 
+        {
+            ArrowGO.transform.GetChild(0).GetComponent<Text>().text = "無限";
+        }
+        else
+        {
+            ArrowGO.transform.GetChild(0).GetComponent<Text>().text = playerInfo.ArrowCount.ToString();
+        }
+        
+        MagicGO.transform.GetChild(0).GetComponent<Text>().text = playerInfo.MagicCount.ToString();
+    }
     public void Initial()
     {
-        for(int i=0;i<SkillObjectsGO.transform.childCount;i++)
+        for (int i = 0; i < SkillObjectsGO.transform.childCount; i++)
         {
             SkillObjectsGO.transform.GetChild(i).GetComponent<Image>().sprite = null;
             SkillObjectsGO.transform.GetChild(i).GetComponentInChildren<Text>().text = "";
@@ -94,16 +236,16 @@ public class PlayerCardPageScript : BasePageScript
         int SkillCount = 0;
         for (int i = 0; i < playerInfo.SkillIndexes.Count; i++)
         {
-            if(DecideIfSkillIsLast(playerInfo.SkillIndexes[i]))
+            if (DecideIfSkillIsLast(playerInfo.SkillIndexes[i]))
             {
                 SkillObjectsGO.transform.GetChild(SkillCount).GetComponent<Image>().sprite = Skill_Info_Manager.Skill_List[playerInfo.SkillIndexes[i]].Image;
                 SkillObjectsGO.transform.GetChild(SkillCount).GetComponentInChildren<Text>().text = Skill_Info_Manager.Skill_List[playerInfo.SkillIndexes[i]].Name;
                 SkillObjectsGO.transform.GetChild(SkillCount).gameObject.SetActive(true);
                 SkillCount++;
-            }           
+            }
         }
 
-        if(playerInfo.Clasz =="W")
+        if (playerInfo.Clasz == "W")
         {
             _ClaszGO.GetComponent<Image>().sprite = Skill_Info_Manager.W_ClaszImg;
             ClazeSpecialSkillGO.GetComponent<Image>().sprite = Skill_Info_Manager.W_ClaszSkillImg;
@@ -130,7 +272,7 @@ public class PlayerCardPageScript : BasePageScript
             ClazeSpecialSkillGO.SetActive(false);
         }
 
-        if(playerInfo.Rank =="S")
+        if (playerInfo.Rank == "S")
         {
             _RankGO.GetComponent<Image>().sprite = Skill_Info_Manager.S_RankImg;
         }
@@ -151,7 +293,7 @@ public class PlayerCardPageScript : BasePageScript
             _RankGO.GetComponent<Image>().sprite = Skill_Info_Manager.N_RankImg;
         }
 
-        if(playerInfo.Sided =="BL")
+        if (playerInfo.Sided == "BL")
         {
             SideImageGO.GetComponent<Image>().sprite = Skill_Info_Manager.Side_BIImg;
         }
@@ -176,14 +318,9 @@ public class PlayerCardPageScript : BasePageScript
             SideImageGO.GetComponent<Image>().sprite = Skill_Info_Manager.Side_NTImg;
         }
 
-        CalutlateFinialPlayerProperty();
+        InitPlayerSkillAndPropoertyGrid();
 
-        HPGO.transform.GetChild(0).GetComponent<Text>().text = playerInfo.HP.ToString();
-        ThorwGO.transform.GetChild(0).GetComponent<Text>().text = playerInfo.ThrowCount.ToString();
-        ArrowGO.transform.GetChild(0).GetComponent<Text>().text = playerInfo.ArrowCount.ToString();
-        MagicGO.transform.GetChild(0).GetComponent<Text>().text = playerInfo.MagicCount.ToString();
-
-        if(playerInfo.withHelmet)
+        if (playerInfo.withHelmet)
         {
             ContinueHitGO.SetActive(true);
         }
@@ -191,6 +328,16 @@ public class PlayerCardPageScript : BasePageScript
         {
             ContinueHitGO.SetActive(false);
         }
-        
+
+        if(playerInfo.withHeavyEquip)
+        {
+            HeavyLoadGO.SetActive(true);
+        }
+        else
+        {
+            HeavyLoadGO.SetActive(false);
+        }
+
+        InitialHPBar();
     }
 }

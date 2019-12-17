@@ -40,26 +40,31 @@ public class ChooseRankPageScript : BasePageScript
         if (playerInfo.Rank == "C")
         {
             RankC_Btn.GetComponent<Image>().material = DefaultMat;
+            OnSelectRankC();
         }
 
         if (playerInfo.Rank == "B")
         {
             RankB_Btn.GetComponent<Image>().material = DefaultMat;
+            OnSelectRankB();
         }
 
         if (playerInfo.Rank == "A")
         {
             RankA_Btn.GetComponent<Image>().material = DefaultMat;
+            OnSelectRankA();
         }
 
         if (playerInfo.Rank == "S")
         {
             RankS_Btn.GetComponent<Image>().material = DefaultMat;
+            OnSelectRankS();
         }
 
         if (playerInfo.Rank == "N")
         {
             RankN_Btn.GetComponent<Image>().material = DefaultMat;
+            OnSelectRankN();
         }
 
 

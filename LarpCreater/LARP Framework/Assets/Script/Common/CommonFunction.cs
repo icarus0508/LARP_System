@@ -98,4 +98,27 @@ public class CommonFunction : MonoBehaviour
         OpenObj.SetActive(true);
     }
 
+    public enum OperatorEnm
+    {
+        REPLACE,
+        ADD,
+        SUB,
+        MUL,
+        DIV,
+    }
+
+    public static OperatorEnm ExtractOperator(string number)
+    {
+        if (number[0] == '+')
+            return OperatorEnm.ADD;
+        if (number[0] == '-')
+            return OperatorEnm.SUB;
+        if (number[0] == 'x' || number[0] == 'X' || number[0] == '*')
+            return OperatorEnm.MUL;
+        if (number[0] == '/' || number[0]=='\\' )
+            return OperatorEnm.DIV;
+
+        return OperatorEnm.REPLACE;
+    }
+
 }

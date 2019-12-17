@@ -181,6 +181,10 @@ public class ChooseSkillPageScript : BasePageScript
             }
     }
 
+    private void OnDisable()
+    {
+        
+    }
     public void OnResetSkillPoint()
     {
         for(int i=0;i<ScrollViewContentGO.transform.childCount;i++)

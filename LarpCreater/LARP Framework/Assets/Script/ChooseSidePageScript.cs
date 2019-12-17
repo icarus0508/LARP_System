@@ -43,26 +43,31 @@ public class ChooseSidePageScript : BasePageScript
         if(playerInfo.Sided =="BI")
         {
             BI_Btn.GetComponent<Image>().material = DefaultMat;
+            ChooseBlueIron();
         }
 
         if (playerInfo.Sided == "AD")
         {
             AD_Btn.GetComponent<Image>().material = DefaultMat;
+            ChooseAxeDragon();
         }
 
         if (playerInfo.Sided == "JD")
         {
             JD_Btn.GetComponent<Image>().material = DefaultMat;
+            ChooseJadeDragon();
         }
 
         if (playerInfo.Sided == "DN")
         {
             DN_Btn.GetComponent<Image>().material = DefaultMat;
+            ChooseDeamon();
         }
 
         if (playerInfo.Sided == "NT")
         {
             NT_Btn.GetComponent<Image>().material = DefaultMat;
+            ChooseNoTeam();
         }
     }
     private void OnEnable()

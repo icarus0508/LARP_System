@@ -40,24 +40,40 @@ public class ChooseClassPageScript : BasePageScript
         if (playerInfo.Clasz == "W")
         {
             WClass_Btn.GetComponent<Image>().material = DefaultMat;
+            OnSelectedWClass();
         }
         if (playerInfo.Clasz == "A")
         {
             AClass_Btn.GetComponent<Image>().material = DefaultMat;
+            OnSelectedAClass();
         }
         if (playerInfo.Clasz == "M")
         {
             MClass_Btn.GetComponent<Image>().material = DefaultMat;
+            OnSelectedMClass();
         }
 
-        if(playerInfo.withHelmet)
+        if (playerInfo.withHelmet)
         {
             ClinkBtn_GO.SetActive(true);
+            playerInfo.withHelmet = true;
         }
         else
         {
             ClinkBtn_GO.SetActive(false);
+            playerInfo.withHelmet = false;
         }
+        if (playerInfo.withHeavyEquip)
+        {
+            ClickBtnHeavy_GO.SetActive(true);
+            playerInfo.withHeavyEquip = true;
+        }
+        else
+        {
+            ClickBtnHeavy_GO.SetActive(false);
+            playerInfo.withHeavyEquip = false;
+        }
+
     }
     private void OnEnable()
     {
