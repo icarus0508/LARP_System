@@ -34,9 +34,33 @@ public class Player_Info : MonoBehaviour
         
     }
 
-    public void LoadPlayerInfoFromFile()
+
+    public void LoadFromPlayerSaveInfo(Player_Save_Info psi)
     {
+        SkillIndexes.Clear();
 
+        Name = psi.Name;
+        Photo = psi.Photo;
+        Rank = psi.Rank;
+        Clasz = psi.Clasz;
+        Sided = psi.Sided;
+        withHeavyEquip = psi.withHeavyEquip;
+        withHelmet = psi.withHelmet;
+        HP = psi.HP;
+        ArrowCount = psi.ArrowCount;
+        ThrowCount = psi.ThrowCount;
+        MagicCount = psi.MagicCount;
+
+        foreach(var s in psi.SkillNames)
+        {
+            for(int i=0;i<Skill_Info_Manager.Skill_List.Count;i++)
+            {
+                if(s == Skill_Info_Manager.Skill_List[i].Name)
+                {
+                    SkillIndexes.Add(i);
+                }
+            }
+        }
     }
-
 }
+

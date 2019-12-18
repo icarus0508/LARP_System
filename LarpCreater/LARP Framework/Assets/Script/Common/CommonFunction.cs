@@ -121,4 +121,30 @@ public class CommonFunction : MonoBehaviour
         return OperatorEnm.REPLACE;
     }
 
+    public static void SaveImg(string path,Texture2D texture)
+    {
+        byte[] TempImg = texture.EncodeToPNG();
+        File.WriteAllBytes(path, TempImg);
+    }
+
+    public static void SaveJason(string path ,string tjson)
+    {
+        StreamWriter sw = File.CreateText(path);
+        sw.Close();
+
+        File.WriteAllText(path, tjson);
+    }
+
+    public static Player_Save_Info LoadJason(string path)
+    {
+        StreamReader sr = File.OpenText(path);
+
+        string json = File.ReadAllText(path);
+
+        Player_Save_Info tempPSI= JsonUtility.FromJson<Player_Save_Info>(json);
+
+        return tempPSI;
+    }
+      
+ 
 }

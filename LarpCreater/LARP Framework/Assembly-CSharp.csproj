@@ -74,6 +74,7 @@
     <Compile Include="Assets\Script\Common\WebCamera.cs" />
     <Compile Include="Assets\Script\CreatePlayerScript.cs" />
     <Compile Include="Assets\Script\DataStrcture\Player_Info.cs" />
+    <Compile Include="Assets\Script\DataStrcture\Player_Save_Info.cs" />
     <Compile Include="Assets\Script\DataStrcture\PlayerClass_Info.cs" />
     <Compile Include="Assets\Script\DataStrcture\Race_Info.cs" />
     <Compile Include="Assets\Script\DataStrcture\Skill_Info_Manager.cs" />

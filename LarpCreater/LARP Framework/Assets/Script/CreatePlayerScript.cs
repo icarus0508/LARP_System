@@ -72,4 +72,10 @@ public class CreatePlayerScript : BasePageScript
             CameraCaputre_Go.transform.GetChild(i).gameObject.SetActive(false);
         }
     }
+
+
+    public void OnLoadPicture()
+    {
+
+    }
 }

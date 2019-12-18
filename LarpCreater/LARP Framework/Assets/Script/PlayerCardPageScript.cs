@@ -4,10 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEditor;
 
+using System.IO;
+
 public class PlayerCardPageScript : BasePageScript
 {
     public GameObject playerIn_GO;
     private Player_Info playerInfo;
+
+    public GameObject MainPlayerCardGO;
 
     public GameObject PlayerImgGO;
     public GameObject SkillObjectsGO;
@@ -25,6 +29,9 @@ public class PlayerCardPageScript : BasePageScript
 
     public GameObject HPBarGO;
     public GameObject PrefabsHPBarEelelment;
+
+
+    private string playerPath = "./Assets/PlayerData/";
 
 
     // Start is called before the first frame update
@@ -339,5 +346,44 @@ public class PlayerCardPageScript : BasePageScript
         }
 
         InitialHPBar();
+    }
+
+    private void ExportPlayerCard()
+    {
+        var temTx = CommonFunction.TextureToTexture2D(MainPlayerCardGO.GetComponent<RawImage>().texture);
+        CommonFunction.SaveImg(playerPath + "/testName.png", temTx);
+    }
+    private void ExportPlayerInfo()
+    {
+
+        //  Player_Save_Info tPSI = playerIn_GO.GetComponent<Player_Save_Info>();
+        Player_Save_Info tPSI = new Player_Save_Info();
+        tPSI.Name = playerInfo.Name;
+        tPSI.Photo = playerInfo.Photo;
+        tPSI.Rank = playerInfo.Rank;
+        tPSI.Clasz = playerInfo.Clasz;
+        tPSI.Sided = playerInfo.Sided;
+        tPSI.withHelmet = playerInfo.withHelmet;
+        tPSI.withHeavyEquip = playerInfo.withHeavyEquip;
+        tPSI.HP = playerInfo.HP;
+        tPSI.ArrowCount = playerInfo.ArrowCount;
+        tPSI.ThrowCount = playerInfo.ThrowCount;
+        tPSI.MagicCount = playerInfo.MagicCount;
+
+        foreach(var s in playerInfo.SkillIndexes)
+        {
+           string tS= Skill_Info_Manager.Skill_List[s].Name;
+            tPSI.SkillNames.Add(tS);
+        }
+
+        string tJason = tPSI.SaveToString();
+
+
+        CommonFunction.SaveJason(playerPath + "/testJason.jason", tJason);
+    }
+    public void OnExoprtData()
+    {
+        ExportPlayerCard();
+        ExportPlayerInfo();
     }
 }
