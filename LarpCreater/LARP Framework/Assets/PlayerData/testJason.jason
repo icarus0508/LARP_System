@@ -2,17 +2,18 @@
     "Name": "",
     "Photo": "",
     "Rank": "S",
-    "Clasz": "W",
-    "Sided": "JD",
-    "withHelmet": false,
-    "withHeavyEquip": false,
-    "HP": 7,
-    "ArrowCount": 0,
+    "Clasz": "A",
+    "Sided": "AD",
+    "withHelmet": true,
+    "withHeavyEquip": true,
+    "HP": 8,
+    "ArrowCount": 12,
     "ThrowCount": 0,
     "MagicCount": 0,
     "SkillNames": [
-        "法陣部署",
-        "背襲回血",
-        "老練戰將"
+        "救贖",
+        "蓄力打擊",
+        "火箭",
+        "震地擊"
     ]
 }

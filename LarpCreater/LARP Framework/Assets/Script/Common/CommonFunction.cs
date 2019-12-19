@@ -143,6 +143,8 @@ public class CommonFunction : MonoBehaviour
 
         Player_Save_Info tempPSI= JsonUtility.FromJson<Player_Save_Info>(json);
 
+        sr.Close();
+
         return tempPSI;
     }
       

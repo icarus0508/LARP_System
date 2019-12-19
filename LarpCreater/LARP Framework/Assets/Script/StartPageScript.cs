@@ -43,7 +43,7 @@ public class StartPageScript : BasePageScript
     public void LoadCharacterInfo()
     {
         Player_Save_Info tPSI = 
-        CommonFunction.LoadJason("./Assets/PlayerData/testJason.jason");
+        CommonFunction.LoadJason(Application.dataPath + "PlayerData/testJason.jason");
 
         Player_Info tPI= PlayerInfoGO.GetComponent<Player_Info>();
         tPI.LoadFromPlayerSaveInfo(tPSI);

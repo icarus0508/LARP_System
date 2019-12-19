@@ -5,6 +5,7 @@ using ExcelDataReader;
 using System.IO;
 using System.Data;
 
+
 public class Skill_info
 {
     public string Name;
@@ -26,11 +27,37 @@ public class Skill_info
     
 
 }
+[System.Serializable]
+public class Skill_Save_Info
+{
+    public string Name;
+    public string ImageName;
+    public string Description;
+    public string DetailDescription;
+    public string AvaClass;
+    public string PreSkillName;
+    public string HPBuff;
+    public string MPBuff;
+    public string ArrowBuff;
+    public string ThrowBuff;
+    public string AvaRank;
+    public string MaxCost;
+}
+[System.Serializable]
+public class Skill_Save_Info_List
+{
+    public List<Skill_Save_Info> SkillList = new List<Skill_Save_Info>();
+
+    public string ConvertToJason()
+    {
+        return JsonUtility.ToJson(this, true);
+    }
+}
 
 public class Skill_Info_Manager : MonoBehaviour
 {
-    private string SkillIconDirectionPath = ".\\Assets\\Images\\Skill\\";
-    private string UIDirectionPath = ".\\Assets\\Images\\UI\\";
+    private string SkillIconDirectionPath = "\\Images\\Skill\\";
+    private string UIDirectionPath = "\\Images\\UI\\";
     static public List<Skill_info> Skill_List = new List<Skill_info>();
     public static Sprite W_ClaszImg = null;
     public static Sprite A_ClaszImg = null;
@@ -55,7 +82,8 @@ public class Skill_Info_Manager : MonoBehaviour
    
     void LoadSkill()
     {
-        string filePath = ".\\Assets\\Excel\\Skill.xlsx";
+        string filePath = Application.dataPath + "\\Excel\\Skill.xlsx";
+        //string filePath = Application.dataPath + "\\Assets\\Excel\\Skill.xlsx";
         FileStream ExcelReader = File.Open(filePath, FileMode.Open);
 
         IExcelDataReader excelRead = ExcelReaderFactory.CreateOpenXmlReader(ExcelReader);
@@ -82,7 +110,7 @@ public class Skill_Info_Manager : MonoBehaviour
             tSkillInfo.AvaRank = result.Tables[set].Rows[i][10].ToString();
             tSkillInfo.MaxCost = result.Tables[set].Rows[i][11].ToString();
 
-            Texture2D tex = CommonFunction.LoadPNG(SkillIconDirectionPath + tSkillInfo.ImageName);
+            Texture2D tex = CommonFunction.LoadPNG(Application.dataPath + SkillIconDirectionPath + tSkillInfo.ImageName);
             tSkillInfo.Image = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(0, 0));
 
             Skill_List.Add(tSkillInfo);
@@ -90,13 +118,22 @@ public class Skill_Info_Manager : MonoBehaviour
 
         excelRead.Close();
 
-        for(int i=0;i<Skill_List.Count;i++)
+        SettingUpSkillList();
+
+        DataIsReady = true;
+
+       // ExportSkillListToExcel();
+    }
+  
+    private void SettingUpSkillList()
+    {
+        for (int i = 0; i < Skill_List.Count; i++)
         {
-            if(Skill_List[i].PreSkillName!=null)
+            if (Skill_List[i].PreSkillName != null)
             {
-                for(int j=0;j<Skill_List.Count;j++)
+                for (int j = 0; j < Skill_List.Count; j++)
                 {
-                    if(Skill_List[j].Name ==  Skill_List[i].PreSkillName)
+                    if (Skill_List[j].Name == Skill_List[i].PreSkillName)
                     {
                         Skill_List[i].PreSkillIndex = j;
                         Skill_List[j].PostSkillIndex = i;
@@ -105,29 +142,85 @@ public class Skill_Info_Manager : MonoBehaviour
             }
         }
 
-        W_ClaszImg = CreateSpriteByImg(UIDirectionPath + "戰_圓形.png");
-        A_ClaszImg = CreateSpriteByImg(UIDirectionPath + "弓_圓形.png");
-        M_ClaszImg = CreateSpriteByImg(UIDirectionPath + "法_圓形.png");
-        N_ClaszImg = CreateSpriteByImg(UIDirectionPath + "民_圓形.png");
-        W_ClaszSkillImg =CreateSpriteByImg(SkillIconDirectionPath + "硬甲.png");
-        A_ClaszSkillImg = CreateSpriteByImg(SkillIconDirectionPath + "韌甲.png");
-        M_ClaszSkillImg = CreateSpriteByImg(SkillIconDirectionPath + "博學者.png");
+        W_ClaszImg = CreateSpriteByImg(Application.dataPath+UIDirectionPath + "戰_圓形.png");
+        A_ClaszImg = CreateSpriteByImg(Application.dataPath + UIDirectionPath + "弓_圓形.png");
+        M_ClaszImg = CreateSpriteByImg(Application.dataPath + UIDirectionPath + "法_圓形.png");
+        N_ClaszImg = CreateSpriteByImg(Application.dataPath + UIDirectionPath + "民_圓形.png");
+        W_ClaszSkillImg = CreateSpriteByImg(Application.dataPath + SkillIconDirectionPath + "硬甲.png");
+        A_ClaszSkillImg = CreateSpriteByImg(Application.dataPath + SkillIconDirectionPath + "韌甲.png");
+        M_ClaszSkillImg = CreateSpriteByImg(Application.dataPath + SkillIconDirectionPath + "博學者.png");
 
-        S_RankImg = CreateSpriteByImg(UIDirectionPath + "OuterFrameS.png");
-        A_RankImg = CreateSpriteByImg(UIDirectionPath + "OuterFrameA.png");
-        B_RankImg = CreateSpriteByImg(UIDirectionPath + "OuterFrameB.png");
-        C_RankImg = CreateSpriteByImg(UIDirectionPath + "OuterFrameC.png");
-        N_RankImg = CreateSpriteByImg(UIDirectionPath + "OuterFrameN.png");
+        S_RankImg = CreateSpriteByImg(Application.dataPath + UIDirectionPath + "OuterFrameS.png");
+        A_RankImg = CreateSpriteByImg(Application.dataPath + UIDirectionPath + "OuterFrameA.png");
+        B_RankImg = CreateSpriteByImg(Application.dataPath + UIDirectionPath + "OuterFrameB.png");
+        C_RankImg = CreateSpriteByImg(Application.dataPath + UIDirectionPath + "OuterFrameC.png");
+        N_RankImg = CreateSpriteByImg(Application.dataPath + UIDirectionPath + "OuterFrameN.png");
 
-        Side_BIImg = CreateSpriteByImg(UIDirectionPath + "RaceEmpire.png");
-        Side_ADImg = CreateSpriteByImg(UIDirectionPath + "RaceHorde.png");
-        Side_JDImg = CreateSpriteByImg(UIDirectionPath + "RaceAsia.png");
-        Side_DNImg = CreateSpriteByImg(UIDirectionPath + "RaceMonster.png");
-        Side_NTImg = CreateSpriteByImg(UIDirectionPath + "RaceEmpire.png");
-
-        DataIsReady = true;
+        Side_BIImg = CreateSpriteByImg(Application.dataPath + UIDirectionPath + "RaceEmpire.png");
+        Side_ADImg = CreateSpriteByImg(Application.dataPath + UIDirectionPath + "RaceHorde.png");
+        Side_JDImg = CreateSpriteByImg(Application.dataPath + UIDirectionPath + "RaceAsia.png");
+        Side_DNImg = CreateSpriteByImg(Application.dataPath + UIDirectionPath + "RaceMonster.png");
+        Side_NTImg = CreateSpriteByImg(Application.dataPath + UIDirectionPath + "RaceEmpire.png");
     }
-  
+    public void LoadSkillFromJason()
+    {
+        StreamReader sr = File.OpenText(Application.dataPath + "/SkillListJason.jason");
+        string json = File.ReadAllText(Application.dataPath + "/SkillListJason.jason");
+        Skill_Save_Info_List tSSIL = JsonUtility.FromJson<Skill_Save_Info_List>(json);
+        sr.Close();
+
+        Skill_List.Clear();
+        foreach(var s in tSSIL.SkillList)
+        {
+            Skill_info tSkillInfo = new Skill_info();
+            tSkillInfo.Name =  s.Name;
+            tSkillInfo.ImageName = s.ImageName;
+            tSkillInfo.Description = s.Description;
+            tSkillInfo.DetailDescription = s.DetailDescription;
+            tSkillInfo.AvaClass = s.AvaClass;
+            tSkillInfo.PreSkillName = s.PreSkillName;
+            tSkillInfo.HPBuff = s.HPBuff;
+            tSkillInfo.MPBuff = s.MPBuff;
+            tSkillInfo.ArrowBuff = s.ArrowBuff;
+            tSkillInfo.ThrowBuff = s.ThrowBuff;
+            tSkillInfo.AvaRank = s.AvaRank;
+            tSkillInfo.MaxCost = s.MaxCost;
+
+            Texture2D tex = CommonFunction.LoadPNG(Application.dataPath+SkillIconDirectionPath + tSkillInfo.ImageName);
+            tSkillInfo.Image = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(0, 0));
+
+            Skill_List.Add(tSkillInfo);
+        }
+
+
+        SettingUpSkillList();
+        DataIsReady = true;
+
+    }
+    public void ExportSkillListToExcel()
+    {
+        Skill_Save_Info_List tSSIL = new Skill_Save_Info_List();
+        foreach(var s in Skill_List)
+        {
+            Skill_Save_Info tSSI = new Skill_Save_Info();
+            tSSI.Name = s.Name;
+            tSSI.ImageName = s.ImageName;
+            tSSI.Description = s.Description;
+            tSSI.DetailDescription = s.DetailDescription;
+            tSSI.AvaClass = s.AvaClass;
+            tSSI.PreSkillName = s.PreSkillName;
+            tSSI.HPBuff = s.HPBuff;
+            tSSI.MPBuff = s.MPBuff;
+            tSSI.ArrowBuff = s.ArrowBuff;
+            tSSI.ThrowBuff = s.ThrowBuff;
+            tSSI.AvaRank = s.AvaRank;
+            tSSI.MaxCost = s.MaxCost;
+            tSSIL.SkillList.Add(tSSI);
+        }
+
+        string tJson = tSSIL.ConvertToJason();
+        CommonFunction.SaveJason(Application.dataPath  + "/SkillListJason.jason", tJson);
+    }
     private Sprite CreateSpriteByImg(string imgPath)
     {
         Texture2D tImg = CommonFunction.LoadPNG(imgPath);
@@ -136,7 +229,8 @@ public class Skill_Info_Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        LoadSkill();
+       // LoadSkill();
+        LoadSkillFromJason();
     }
 
     // Update is called once per frame
