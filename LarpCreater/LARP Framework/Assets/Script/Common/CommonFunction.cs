@@ -135,7 +135,7 @@ public class CommonFunction : MonoBehaviour
         File.WriteAllText(path, tjson);
     }
 
-    public static Player_Save_Info LoadJason(string path)
+    public static Player_Save_Info LoadPlayerSaveInfoJason(string path)
     {
         StreamReader sr = File.OpenText(path);
 
@@ -147,6 +147,6 @@ public class CommonFunction : MonoBehaviour
 
         return tempPSI;
     }
-      
- 
+
+
 }
