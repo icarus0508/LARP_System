@@ -31,8 +31,14 @@ public class CreatePlayerScript : BasePageScript
 
     public GameObject PlayerDisplayImgGO;
 
+
+
     // Define a file extension
     public string[] FileExtensions;
+
+    private Vector2 StartMouseTouchPosition = new Vector2();
+    private Vector2 CurrentMouseTouchPosition = new Vector2();
+    private bool MoushTouchWorkingFlg = false;
 
     // Start is called before the first frame update
     void Start()
@@ -56,7 +62,25 @@ public class CreatePlayerScript : BasePageScript
     // Update is called once per frame
     void Update()
     {
-        
+
+        if(Input.GetMouseButtonDown(0))
+        {
+            OnTouchMouseDown();
+        }
+        if(Input.GetMouseButtonUp(0))
+        {
+            OnTouchMouseUp();
+        }
+        if(HasMouseMoved())
+        {
+            OnTouchMouseMove();
+        }
+    }
+
+    private bool HasMouseMoved()
+    {
+        //I feel dirty even doing this 
+        return (Input.GetAxis("Mouse X") != 0) || (Input.GetAxis("Mouse Y") != 0);
     }
 
     public void OnClienCapturePhotoForCamera()
@@ -189,6 +213,41 @@ public class CreatePlayerScript : BasePageScript
                             sampleTexture.width, sampleTexture.height), 
                             new Vector2(0, 0));
         FinalImg_GO.SetActive(true);
+
+    }
+
+    private void OnTouchMouseDown()
+    {
+        MoushTouchWorkingFlg = true;
+
+        StartMouseTouchPosition.x = Input.GetAxis("Mouse X");
+        StartMouseTouchPosition.y = Input.GetAxis("Mouse Y");
+    }
+    private void  OnTouchMouseUp()
+    {
+        MoushTouchWorkingFlg = false;
+        StartMouseTouchPosition.x = 0;
+        StartMouseTouchPosition.y = 0;
+        CurrentMouseTouchPosition.x = 0;
+        CurrentMouseTouchPosition.y = 0;
+    }
+
+    private void  OnTouchMouseMove()
+    {
+        if(MoushTouchWorkingFlg)
+        {
+            CurrentMouseTouchPosition.x = Input.GetAxis("Mouse X");
+            CurrentMouseTouchPosition.y = Input.GetAxis("Mouse Y");
+
+            Vector3 tPosition = new Vector3(TargetImage_GO.transform.position.x + (CurrentMouseTouchPosition.x - StartMouseTouchPosition.x),
+                                            TargetImage_GO.transform.position.y + (CurrentMouseTouchPosition.y - StartMouseTouchPosition.y),0);
+            TargetImage_GO.transform.SetPositionAndRotation(tPosition, Quaternion.identity);
+
+        }
+    }
+
+    public void OnClickConfirmBtn()
+    {
 
     }
 
