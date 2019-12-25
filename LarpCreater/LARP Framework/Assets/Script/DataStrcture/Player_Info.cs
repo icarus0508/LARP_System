@@ -6,6 +6,7 @@ public class Player_Info : MonoBehaviour
 {
     public string Name;
     public string Photo;
+    public Sprite PlayerPhoto;
     public string Rank = "C";
     public string Clasz = "W";
     public string Sided = "BI";

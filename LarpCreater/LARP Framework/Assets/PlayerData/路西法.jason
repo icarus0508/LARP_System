@@ -1,0 +1,16 @@
+{
+    "Name": "路西法",
+    "Photo": "/PlayerData/PlayerMainPic/路西法.png",
+    "Rank": "C",
+    "Clasz": "W",
+    "Sided": "BI",
+    "withHelmet": false,
+    "withHeavyEquip": true,
+    "HP": 4,
+    "ArrowCount": 0,
+    "ThrowCount": 0,
+    "MagicCount": 0,
+    "SkillNames": [
+        "耐力"
+    ]
+}

@@ -31,7 +31,7 @@ public class PlayerCardPageScript : BasePageScript
     public GameObject PrefabsHPBarEelelment;
 
 
-    private string playerPath = "/PlayerData/";
+    private string playerPath = "/PlayerData";
 
 
     // Start is called before the first frame update
@@ -345,13 +345,20 @@ public class PlayerCardPageScript : BasePageScript
             HeavyLoadGO.SetActive(false);
         }
 
+        PlayerImgGO.GetComponent<Image>().sprite = playerInfo.PlayerPhoto;
+
+        NamePlateGO.GetComponent<Text>().text = playerInfo.Name;
+
         InitialHPBar();
     }
 
     private void ExportPlayerCard()
     {
         var temTx = CommonFunction.TextureToTexture2D(MainPlayerCardGO.GetComponent<RawImage>().texture);
-        CommonFunction.SaveImg(Application.dataPath + playerPath + "/testName.png", temTx);
+        CommonFunction.SaveImg(Application.dataPath + playerPath +"/"+playerInfo.Name+ ".png", temTx);
+
+        playerInfo.Photo = playerPath + "/PlayerMainPic/" + playerInfo.Name + ".png";
+        CommonFunction.SaveImg(Application.dataPath + playerInfo.Photo, playerInfo.PlayerPhoto.texture);
     }
     private void ExportPlayerInfo()
     {
@@ -378,7 +385,7 @@ public class PlayerCardPageScript : BasePageScript
         string tJason = tPSI.SaveToString();
 
 
-        CommonFunction.SaveJason(Application.dataPath + playerPath + "/testJason.jason", tJason);
+        CommonFunction.SaveJason(Application.dataPath + playerPath +"/"+ playerInfo.Name +".jason", tJason);
     }
     public void OnExoprtData()
     {

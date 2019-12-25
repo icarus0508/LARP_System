@@ -23,8 +23,7 @@ public class CreatePlayerScript : BasePageScript
 
     public GameObject fileBrowserPrefab;
 
-    private Texture2D sampleTexture;
-    public Texture2D maskTexture;
+
 
 
     public GameObject TargetImage_GO;
@@ -39,6 +38,7 @@ public class CreatePlayerScript : BasePageScript
     private Vector2 StartMouseTouchPosition = new Vector2();
     private Vector2 CurrentMouseTouchPosition = new Vector2();
     private bool MoushTouchWorkingFlg = false;
+    private float ScalellValue = 1.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -52,10 +52,6 @@ public class CreatePlayerScript : BasePageScript
         {
             playerInfo = playerIn_GO.GetComponent<Player_Info>();
         }
-
-        sampleTexture = new Texture2D(maskTexture.width, maskTexture.height);
-
-
     
     }
 
@@ -75,6 +71,8 @@ public class CreatePlayerScript : BasePageScript
         {
             OnTouchMouseMove();
         }
+
+        OnScrolling();
     }
 
     private bool HasMouseMoved()
@@ -149,72 +147,13 @@ public class CreatePlayerScript : BasePageScript
         OpenFileBrowser();
     }
 
-    public void SelectedImgRect()
-    {
-      //  playerImage.sprite.texture.ReadPixels(new Rect(300, 0, 500, 799),0,0);
-       // FinalImg_GO.GetComponent<Image>().sprite.texture = playerImage.sprite.texture;
-       // FinalImg_GO.SetActive(true);
-
-    }
 
     private void OnGUI()
     {
-        //if(GUI.Button(new Rect(10,70,50,30),"Click"))
-        //{
-        //    //  SelectedImgRect();
-        //    CutOutFace();
-        //}
-    }
-
-    public void CutOutFace()
-    {
-        
-        Texture2D destTexture = 
-            new Texture2D(playerImage.sprite.texture.width, playerImage.sprite.texture.height, TextureFormat.ARGB32, false);
-        
-        Color[] textureData = playerImage.sprite.texture.GetPixels();
-        
-        destTexture.SetPixels(textureData);
-        
-        destTexture.Apply();
-
-        destTexture.filterMode = FilterMode.Bilinear;
-       
-
-        textureData = destTexture.GetPixels();
-        
-        sampleTexture.SetPixels(textureData);
-       
-        sampleTexture.Apply();
-
-       
-        Color[] maskPixels = maskTexture.GetPixels();
-        
-        Color[] curPixels = sampleTexture.GetPixels();
-
-        int index = 0;
-        for (int y = 0; y < maskTexture.height; y++)
-        {
-            for (int x = 0; x < maskTexture.width; x++)
-            {
-                if (maskPixels[index] != maskPixels[0])
-                {
-                    curPixels[index] = Color.clear;
-                }
-                index++;
-            }
-        }
-        sampleTexture.SetPixels(curPixels, 0);
-        sampleTexture.Apply(false);
-
-         FinalImg_GO.GetComponent<Image>().sprite=
-            Sprite.Create(sampleTexture,
-                            new Rect(0, 0,
-                            sampleTexture.width, sampleTexture.height), 
-                            new Vector2(0, 0));
-        FinalImg_GO.SetActive(true);
 
     }
+
+   
 
     private void OnTouchMouseDown()
     {
@@ -246,9 +185,41 @@ public class CreatePlayerScript : BasePageScript
         }
     }
 
+    private void OnScrolling()
+    {
+
+        if (Input.mouseScrollDelta.y > 0)
+        {
+            ScalellValue += 0.1f;
+            if(ScalellValue > 5.0f)
+            {
+                ScalellValue = 5.0f;
+            }
+        }
+
+        if (Input.mouseScrollDelta.y < 0)
+        {
+            ScalellValue -= 0.1f;
+            if(ScalellValue < 0.1f)
+            {
+                ScalellValue = 0.1f;
+            }
+        }
+        TargetImage_GO.transform.localScale = new Vector3(ScalellValue, ScalellValue, ScalellValue);
+    }
     public void OnClickConfirmBtn()
     {
 
+        Texture2D tTex = CommonFunction.TextureToTexture2D(PlayerDisplayImgGO.GetComponent<RawImage>().texture);
+        playerInfo.PlayerPhoto = Sprite.Create(tTex, new Rect(0, 0, tTex.width, tTex.height), new Vector2(0, 0));
+
+    }
+
+ 
+
+    public void OnEndofType(Text playerName)
+    {
+        playerInfo.Name = playerName.text;
     }
 
 }

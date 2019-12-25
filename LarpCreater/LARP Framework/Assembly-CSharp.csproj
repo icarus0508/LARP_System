@@ -91,6 +91,7 @@
     <Compile Include="Assets\Script\StartPageScript.cs" />
     <Compile Include="Assets\Script\TransmitPageScript.cs" />
     <None Include="Assets\Shader\GrayscaleShader.shader" />
+    <None Include="Assets\fonts\arlishugbmd_test\Readme.txt" />
     <None Include="Assets\FileBrowser\SimpleFileBrowser\ReadMe.txt" />
     <None Include="Assets\FileBrowser\SimpleFileBrowser\DemoFiles\TextFileWithNewLines.txt" />
     <None Include="Assets\FileBrowser\SimpleFileBrowser\Sprites\IconMonstrLicense.txt" />
