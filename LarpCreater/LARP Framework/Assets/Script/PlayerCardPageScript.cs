@@ -6,6 +6,11 @@ using UnityEditor;
 
 using System.IO;
 
+using System.Net;
+using System.Net.Mail;
+using System.Net.Security;
+using System.Security.Cryptography.X509Certificates;
+
 public class PlayerCardPageScript : BasePageScript
 {
     public GameObject playerIn_GO;
@@ -391,5 +396,29 @@ public class PlayerCardPageScript : BasePageScript
     {
         ExportPlayerCard();
         ExportPlayerInfo();
+        SendEmailToServer();
+    }
+
+    public void SendEmailToServer()
+    {
+        MailMessage mail = new MailMessage();
+        mail.From = new MailAddress("icarus0508@hotmail.com");
+        mail.To.Add("icarus0508@hotmail.com");
+        mail.Subject = "TestMail_Subject";
+        mail.Body = "This is for Testing SMTP mail";
+
+
+        SmtpClient smtpClient = new SmtpClient("smtp.live.com");
+        smtpClient.Port = 587;
+        smtpClient.Credentials = new System.Net.NetworkCredential("icarus0508@hotmail.com", "s0300211s0300211") as ICredentialsByHost;
+        smtpClient.EnableSsl = true;
+        ServicePointManager.ServerCertificateValidationCallback =
+            delegate (object s, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
+            {
+                return true;
+            };
+
+        smtpClient.Send(mail);
+        
     }
 }
