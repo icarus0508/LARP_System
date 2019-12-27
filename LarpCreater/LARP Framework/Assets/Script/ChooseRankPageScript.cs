@@ -79,6 +79,7 @@ public class ChooseRankPageScript : BasePageScript
             }
 
         InitialPage();
+        TransmitPage_GO.GetComponentInChildren<TransmitPageScript>(true).ForceSetNextPageBtnActive(true);
     }
 
     private void OnDisable()

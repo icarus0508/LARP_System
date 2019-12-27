@@ -8,7 +8,7 @@ public class StartPageScript : BasePageScript
     public GameObject StartSystemButton = null;
     public GameObject LoadSystemButton = null;
 
-    public GameObject TransmitPage_GO = null;
+    
 
     public GameObject PlayerInfoGO = null;
 
@@ -49,5 +49,10 @@ public class StartPageScript : BasePageScript
         tPI.LoadFromPlayerSaveInfo(tPSI);
 
         
+    }
+
+    private void OnEnable()
+    {
+        TransmitPage_GO.GetComponentInChildren<TransmitPageScript>(true).ForceSetNextPageBtnActive(false);
     }
 }

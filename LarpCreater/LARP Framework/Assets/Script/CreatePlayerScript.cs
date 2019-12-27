@@ -37,8 +37,10 @@ public class CreatePlayerScript : BasePageScript
 
     private Vector2 StartMouseTouchPosition = new Vector2();
     private Vector2 CurrentMouseTouchPosition = new Vector2();
+    private Vector2 FetchMouseMouchPostion = new Vector2();
     private bool MoushTouchWorkingFlg = false;
     private float ScalellValue = 1.0f;
+    private bool ImageCanBeScaleAndMove = false;
 
     // Start is called before the first frame update
     void Start()
@@ -52,27 +54,42 @@ public class CreatePlayerScript : BasePageScript
         {
             playerInfo = playerIn_GO.GetComponent<Player_Info>();
         }
-    
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(ImageCanBeScaleAndMove)
+        {
+            if (InMoustTouchControllZone(Input.mousePosition))
+            {
+                FetchMouseMouchPostion.x = Input.GetAxis("Mouse X");
+                FetchMouseMouchPostion.y = Input.GetAxis("Mouse Y");
+                if (Input.GetMouseButtonDown(0))
+                {
+                    OnTouchMouseDown();
+                }
+                if (Input.GetMouseButtonUp(0))
+                {
+                    OnTouchMouseUp();
+                }
+                if (HasMouseMoved())
+                {
+                    OnTouchMouseMove();
+                }
 
-        if(Input.GetMouseButtonDown(0))
-        {
-            OnTouchMouseDown();
-        }
-        if(Input.GetMouseButtonUp(0))
-        {
-            OnTouchMouseUp();
-        }
-        if(HasMouseMoved())
-        {
-            OnTouchMouseMove();
+                OnScrolling();
+            }
+            else
+            {
+                if (Input.GetMouseButtonUp(0))
+                {
+                    OnTouchMouseUp();
+                }
+            }
         }
 
-        OnScrolling();
     }
 
     private bool HasMouseMoved()
@@ -118,14 +135,14 @@ public class CreatePlayerScript : BasePageScript
         }
     }
 
-   
+
     private void OpenFileBrowser()
     {
         GameObject fileBrowserObject = Instantiate(fileBrowserPrefab, transform);
         fileBrowserObject.name = "FileBrowser";
-        GracesGames.SimpleFileBrowser.Scripts.FileBrowser fileBrowserScript = 
+        GracesGames.SimpleFileBrowser.Scripts.FileBrowser fileBrowserScript =
             fileBrowserObject.GetComponent<GracesGames.SimpleFileBrowser.Scripts.FileBrowser>();
-        
+
         fileBrowserScript.SetupFileBrowser(GracesGames.SimpleFileBrowser.Scripts.ViewMode.Portrait);
 
         fileBrowserScript.OpenFilePanel(FileExtensions);
@@ -134,7 +151,7 @@ public class CreatePlayerScript : BasePageScript
     }
     private void LoadFileUsingPath(string path)
     {
-
+        ImageCanBeScaleAndMove = true;
         Image tImgGO = TargetImage_GO.GetComponent<Image>();
         Texture2D tImg = CommonFunction.LoadPNG(path);
         tImgGO.sprite = Sprite.Create(tImg, new Rect(0, 0, tImg.width, tImg.height), new Vector2(0, 0));
@@ -153,14 +170,24 @@ public class CreatePlayerScript : BasePageScript
 
     }
 
-   
 
+    private bool InMoustTouchControllZone(Vector3 JudgePos)
+    {
+        if(JudgePos.x > 80 && JudgePos.x < 423)
+        {
+            if(JudgePos.y > 345 && JudgePos.y < 764)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
     private void OnTouchMouseDown()
     {
         MoushTouchWorkingFlg = true;
 
-        StartMouseTouchPosition.x = Input.GetAxis("Mouse X");
-        StartMouseTouchPosition.y = Input.GetAxis("Mouse Y");
+        StartMouseTouchPosition.x = FetchMouseMouchPostion.x;
+        StartMouseTouchPosition.y = FetchMouseMouchPostion.y;
     }
     private void  OnTouchMouseUp()
     {
@@ -175,11 +202,22 @@ public class CreatePlayerScript : BasePageScript
     {
         if(MoushTouchWorkingFlg)
         {
-            CurrentMouseTouchPosition.x = Input.GetAxis("Mouse X");
-            CurrentMouseTouchPosition.y = Input.GetAxis("Mouse Y");
+            CurrentMouseTouchPosition.x = FetchMouseMouchPostion.x;
+            CurrentMouseTouchPosition.y = FetchMouseMouchPostion.y;
 
             Vector3 tPosition = new Vector3(TargetImage_GO.transform.position.x + (CurrentMouseTouchPosition.x - StartMouseTouchPosition.x),
                                             TargetImage_GO.transform.position.y + (CurrentMouseTouchPosition.y - StartMouseTouchPosition.y),0);
+
+            if (tPosition.x < 358)
+                tPosition.x = 358;
+            if (tPosition.x > 365)
+                tPosition.x = 365;
+            if (tPosition.y < 382)
+                tPosition.y = 382;
+            if (tPosition.y > 391)
+                tPosition.y = 391;
+
+
             TargetImage_GO.transform.SetPositionAndRotation(tPosition, Quaternion.identity);
 
         }
@@ -191,18 +229,18 @@ public class CreatePlayerScript : BasePageScript
         if (Input.mouseScrollDelta.y > 0)
         {
             ScalellValue += 0.1f;
-            if(ScalellValue > 5.0f)
+            if(ScalellValue > 3.0f)
             {
-                ScalellValue = 5.0f;
+                ScalellValue = 3.0f;
             }
         }
 
         if (Input.mouseScrollDelta.y < 0)
         {
             ScalellValue -= 0.1f;
-            if(ScalellValue < 0.1f)
+            if(ScalellValue < 0.2f)
             {
-                ScalellValue = 0.1f;
+                ScalellValue = 0.2f;
             }
         }
         TargetImage_GO.transform.localScale = new Vector3(ScalellValue, ScalellValue, ScalellValue);
@@ -213,6 +251,7 @@ public class CreatePlayerScript : BasePageScript
         Texture2D tTex = CommonFunction.TextureToTexture2D(PlayerDisplayImgGO.GetComponent<RawImage>().texture);
         playerInfo.PlayerPhoto = Sprite.Create(tTex, new Rect(0, 0, tTex.width, tTex.height), new Vector2(0, 0));
 
+        TransmitPage_GO.GetComponentInChildren<TransmitPageScript>(true).NextPage();
     }
 
  
@@ -220,6 +259,11 @@ public class CreatePlayerScript : BasePageScript
     public void OnEndofType(Text playerName)
     {
         playerInfo.Name = playerName.text;
+    }
+
+    private void OnEnable()
+    {
+        TransmitPage_GO.GetComponentInChildren<TransmitPageScript>(true).ForceSetNextPageBtnActive(false);
     }
 
 }

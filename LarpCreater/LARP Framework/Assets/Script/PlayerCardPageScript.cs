@@ -36,6 +36,7 @@ public class PlayerCardPageScript : BasePageScript
     public GameObject PrefabsHPBarEelelment;
 
 
+    public GameObject CompletedPlayerCardBtn;
     private string playerPath = "/PlayerData";
 
 
@@ -53,6 +54,7 @@ public class PlayerCardPageScript : BasePageScript
 
     private void OnEnable()
     {
+        CompletedPlayerCardBtn.SetActive(false);
         if (!playerInfo)
             if (playerIn_GO)
             {
@@ -60,6 +62,8 @@ public class PlayerCardPageScript : BasePageScript
             }
 
         Initial();
+
+        TransmitPage_GO.GetComponentInChildren<TransmitPageScript>(true).ForceSetNextPageBtnActive(false);
     }
 
     private void OnDisable()
@@ -397,6 +401,8 @@ public class PlayerCardPageScript : BasePageScript
         ExportPlayerCard();
         ExportPlayerInfo();
         SendEmailToServer();
+
+        CompletedPlayerCardBtn.SetActive(true);
     }
 
     public void SendEmailToServer()
@@ -406,6 +412,15 @@ public class PlayerCardPageScript : BasePageScript
         mail.To.Add("icarus0508@hotmail.com");
         mail.Subject = "TestMail_Subject";
         mail.Body = "This is for Testing SMTP mail";
+
+        Attachment JsonData = new Attachment(Application.dataPath + playerPath + "/" + playerInfo.Name + ".jason");
+        mail.Attachments.Add(JsonData);
+
+        Attachment UserFacePngData = new Attachment(Application.dataPath + playerInfo.Photo);
+        mail.Attachments.Add(UserFacePngData);
+
+        Attachment PlayerCardPngData = new Attachment(Application.dataPath + playerPath + "/" + playerInfo.Name + ".png");
+        mail.Attachments.Add(PlayerCardPngData);
 
 
         SmtpClient smtpClient = new SmtpClient("smtp.live.com");
@@ -420,5 +435,10 @@ public class PlayerCardPageScript : BasePageScript
 
         smtpClient.Send(mail);
         
+    }
+
+    public void OnClickCompletedPlayerCardBtn()
+    {
+        CompletedPlayerCardBtn.SetActive(false);
     }
 }

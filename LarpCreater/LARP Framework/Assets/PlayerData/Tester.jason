@@ -1,0 +1,16 @@
+{
+    "Name": "Tester",
+    "Photo": "/PlayerData/PlayerMainPic/Tester.png",
+    "Rank": "C",
+    "Clasz": "W",
+    "Sided": "BI",
+    "withHelmet": false,
+    "withHeavyEquip": false,
+    "HP": 2,
+    "ArrowCount": 0,
+    "ThrowCount": 0,
+    "MagicCount": 0,
+    "SkillNames": [
+        "祝福"
+    ]
+}

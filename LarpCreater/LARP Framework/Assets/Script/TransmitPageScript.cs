@@ -7,7 +7,7 @@ public class TransmitPageScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DoChangeButtonAppearance();
+        
     }
 
     // Update is called once per frame
@@ -16,6 +16,10 @@ public class TransmitPageScript : MonoBehaviour
         
     }
 
+    private void OnEnable()
+    {
+        DoChangeButtonAppearance();
+    }
 
     public GameObject NextPageButton=null;
     public GameObject PrePageButton = null;
@@ -24,6 +28,7 @@ public class TransmitPageScript : MonoBehaviour
  
     private static Stack<GameObject> PreivewPageStack = new Stack<GameObject>();
 
+    private bool NextButtonVisible = false;
 
     public static void Reset()
     {
@@ -66,6 +71,15 @@ public class TransmitPageScript : MonoBehaviour
         DoChangeButtonAppearance();
     }
 
+    public void ForceSetNextPageBtnActive(bool active)
+    {
+        NextButtonVisible = active;
+    }
+
+    private void ForcePostSetNextPageBtnStatus()
+    {
+        NextPageButton.SetActive(NextButtonVisible);
+    }
     private void DoChangeButtonAppearance()
     {
         if (CurrentPage.GetComponentInChildren<BasePageScript>(true) == null) return;
@@ -87,5 +101,7 @@ public class TransmitPageScript : MonoBehaviour
         {
             PrePageButton.SetActive(true);
         }
+
+        ForcePostSetNextPageBtnStatus();
     }
 }

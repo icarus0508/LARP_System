@@ -6,6 +6,7 @@ public class BasePageScript : MonoBehaviour
 {
     public GameObject CurrentPage = null;
     public GameObject NextPage = null;
+    public GameObject TransmitPage_GO = null;
     // Start is called before the first frame update
     void Start()
     {

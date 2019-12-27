@@ -179,6 +179,8 @@ public class ChooseSkillPageScript : BasePageScript
             {
                 playerInfo = playerIn_GO.GetComponent<Player_Info>();
             }
+
+        TransmitPage_GO.GetComponentInChildren<TransmitPageScript>(true).ForceSetNextPageBtnActive(true);
     }
 
     private void OnDisable()

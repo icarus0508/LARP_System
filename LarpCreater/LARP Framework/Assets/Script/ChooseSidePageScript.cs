@@ -79,6 +79,7 @@ public class ChooseSidePageScript : BasePageScript
             }
 
         InitialPage();
+        TransmitPage_GO.GetComponentInChildren<TransmitPageScript>(true).ForceSetNextPageBtnActive(true);
     }
 
     private void OnDisable()

@@ -1,0 +1,16 @@
+{
+    "Name": "65164",
+    "Photo": "/PlayerData/PlayerMainPic/65164.png",
+    "Rank": "C",
+    "Clasz": "W",
+    "Sided": "JD",
+    "withHelmet": false,
+    "withHeavyEquip": false,
+    "HP": 2,
+    "ArrowCount": 0,
+    "ThrowCount": 0,
+    "MagicCount": 0,
+    "SkillNames": [
+        "祝福"
+    ]
+}

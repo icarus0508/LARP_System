@@ -1,0 +1,16 @@
+{
+    "Name": "89899",
+    "Photo": "/PlayerData/PlayerMainPic/89899.png",
+    "Rank": "C",
+    "Clasz": "W",
+    "Sided": "BI",
+    "withHelmet": false,
+    "withHeavyEquip": false,
+    "HP": 2,
+    "ArrowCount": 0,
+    "ThrowCount": 0,
+    "MagicCount": 0,
+    "SkillNames": [
+        "蓄力打擊"
+    ]
+}
