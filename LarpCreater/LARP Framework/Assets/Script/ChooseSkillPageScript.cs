@@ -32,6 +32,8 @@ public class ChooseSkillPageScript : BasePageScript
     public GameObject SRankSkillListGo = null;
     public GameObject NormalSkillListGo = null;
 
+    public GameObject DeciedeSkillBtn = null;
+
     void TestScrollBar()
     {
         int teSizX = -100;
@@ -168,6 +170,15 @@ public class ChooseSkillPageScript : BasePageScript
         {
             SkillPointLeftGO.GetComponent<Text>().text = playerInfo.skillPointAva.ToString();
         }
+
+        if(CheckIfDecideBtnAvaliable())
+        {
+            DeciedeSkillBtn.SetActive(true);
+        }
+        else
+        {
+            DeciedeSkillBtn.SetActive(false);
+        }
     }
 
     private void OnEnable()
@@ -180,7 +191,7 @@ public class ChooseSkillPageScript : BasePageScript
                 playerInfo = playerIn_GO.GetComponent<Player_Info>();
             }
 
-        TransmitPage_GO.GetComponentInChildren<TransmitPageScript>(true).ForceSetNextPageBtnActive(true);
+        TransmitPage_GO.GetComponentInChildren<TransmitPageScript>(true).ForceSetNextPageBtnActive(false);
     }
 
     private void OnDisable()
@@ -266,5 +277,20 @@ public class ChooseSkillPageScript : BasePageScript
         {
             SRankSkillListGo.transform.GetChild(0).SetParent(ScrollViewContentGO.transform);
         }
+    }
+
+    public void OnDecideSkill()
+    {
+        TransmitPage_GO.GetComponentInChildren<TransmitPageScript>(true).NextPage();
+    }
+
+    private bool CheckIfDecideBtnAvaliable()
+    {
+        if(playerInfo.skillPointAva ==0)
+        {
+            if (playerInfo.SuperPointAva == 0)
+                return true; 
+        }
+        return false;
     }
 }
