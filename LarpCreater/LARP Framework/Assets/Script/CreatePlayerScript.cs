@@ -23,9 +23,6 @@ public class CreatePlayerScript : BasePageScript
 
     public GameObject fileBrowserPrefab;
 
-
-
-
     public GameObject TargetImage_GO;
 
     public GameObject PlayerDisplayImgGO;
@@ -102,37 +99,24 @@ public class CreatePlayerScript : BasePageScript
     {
         CameraCaputre_Go.SetActive(true);
 
-
-        for (int i = 0; i < CameraCaputre_Go.transform.childCount; i++)
-        {
-            CameraCaputre_Go.transform.GetChild(i).gameObject.SetActive(true);
-        }
     }
 
     public void OnClickCapture()
     {
-        if (playerImage)
-            playerImage.sprite = CameraCaputre_Go.GetComponent<WebCamera>().capturedPic;
-
-
+      //  TargetImage_GO.GetComponent<Image>().sprite.texture.width = CameraCaputre_Go.GetComponent<WebCamera>().capturedPic.texture.width;
+      //  TargetImage_GO.GetComponent<Image>().sprite.texture.height = CameraCaputre_Go.GetComponent<WebCamera>().capturedPic.texture.height;
+        TargetImage_GO.GetComponent<Image>().sprite = CameraCaputre_Go.GetComponent<WebCamera>().capturedPic;
         CameraCaputre_Go.SetActive(false);
 
 
-        for (int i = 0; i < CameraCaputre_Go.transform.childCount; i++)
-        {
-            CameraCaputre_Go.transform.GetChild(i).gameObject.SetActive(false);
-        }
+        TargetImage_GO.transform.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, TargetImage_GO.GetComponent<Image>().sprite.texture.width);
+        TargetImage_GO.transform.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, TargetImage_GO.GetComponent<Image>().sprite.texture.height);
+        ImageCanBeScaleAndMove = true;
     }
 
     public void CancelCapturePhoto()
     {
         CameraCaputre_Go.SetActive(false);
-
-
-        for (int i = 0; i < CameraCaputre_Go.transform.childCount; i++)
-        {
-            CameraCaputre_Go.transform.GetChild(i).gameObject.SetActive(false);
-        }
     }
 
 

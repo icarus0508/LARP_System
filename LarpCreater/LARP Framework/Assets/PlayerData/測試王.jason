@@ -1,0 +1,16 @@
+{
+    "Name": " 測試王",
+    "Photo": "/PlayerData/PlayerMainPic/ 測試王.png",
+    "Rank": "C",
+    "Clasz": "W",
+    "Sided": "BI",
+    "withHelmet": false,
+    "withHeavyEquip": true,
+    "HP": 3,
+    "ArrowCount": 0,
+    "ThrowCount": 0,
+    "MagicCount": 0,
+    "SkillNames": [
+        "蓄力打擊"
+    ]
+}
