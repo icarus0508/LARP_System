@@ -6,6 +6,10 @@ ScriptsOnlyBuild:
     - ChooseSidePageScript
     - ChooseSkillPageScript
     - CreatePlayerScript
+    - GracesGames.SimpleFileBrowser.Scripts.FileBrowser
+    - GracesGames.SimpleFileBrowser.Scripts.UI.FileButton
+    - GracesGames.SimpleFileBrowser.Scripts.UI.LandscapeUserInterface
+    - GracesGames.SimpleFileBrowser.Scripts.UI.PortraitUserInterface
     - PlayerCardPageScript
     - Player_Info
     - SkillButtonScript
@@ -30,6 +34,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.ContentSizeFitter
     - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.GridLayoutGroup
     - UnityEngine.UI.Image
     - UnityEngine.UI.InputField
     - UnityEngine.UI.LayoutElement
@@ -62,59 +67,69 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9656}
     - Class: 114
-      Script: {instanceID: 9766}
+      Script: {instanceID: 9660}
     - Class: 114
-      Script: {instanceID: 9772}
+      Script: {instanceID: 9768}
     - Class: 114
-      Script: {instanceID: 9784}
+      Script: {instanceID: 9774}
     - Class: 114
-      Script: {instanceID: 9826}
+      Script: {instanceID: 9786}
     - Class: 114
       Script: {instanceID: 9828}
     - Class: 114
-      Script: {instanceID: 9866}
+      Script: {instanceID: 9830}
     - Class: 114
-      Script: {instanceID: 9968}
+      Script: {instanceID: 9868}
     - Class: 114
-      Script: {instanceID: 9986}
+      Script: {instanceID: 9920}
     - Class: 114
-      Script: {instanceID: 10030}
+      Script: {instanceID: 9970}
     - Class: 114
-      Script: {instanceID: 10048}
+      Script: {instanceID: 9988}
     - Class: 114
-      Script: {instanceID: 10150}
+      Script: {instanceID: 10032}
     - Class: 114
-      Script: {instanceID: 10172}
+      Script: {instanceID: 10050}
     - Class: 114
-      Script: {instanceID: 10232}
+      Script: {instanceID: 10052}
     - Class: 114
-      Script: {instanceID: 10274}
+      Script: {instanceID: 10154}
     - Class: 114
-      Script: {instanceID: 10338}
+      Script: {instanceID: 10176}
     - Class: 114
-      Script: {instanceID: 10450}
+      Script: {instanceID: 10236}
     - Class: 114
-      Script: {instanceID: 10520}
+      Script: {instanceID: 10278}
     - Class: 114
-      Script: {instanceID: 10648}
+      Script: {instanceID: 10342}
     - Class: 114
-      Script: {instanceID: 10668}
+      Script: {instanceID: 10456}
     - Class: 114
-      Script: {instanceID: 10738}
+      Script: {instanceID: 10472}
     - Class: 114
-      Script: {instanceID: 10842}
+      Script: {instanceID: 10528}
     - Class: 114
-      Script: {instanceID: 10994}
+      Script: {instanceID: 10656}
     - Class: 114
-      Script: {instanceID: 11068}
+      Script: {instanceID: 10676}
     - Class: 114
-      Script: {instanceID: 11080}
+      Script: {instanceID: 10746}
     - Class: 114
-      Script: {instanceID: 11130}
+      Script: {instanceID: 10850}
     - Class: 114
-      Script: {instanceID: 11416}
+      Script: {instanceID: 11004}
     - Class: 114
-      Script: {instanceID: 11502}
+      Script: {instanceID: 11078}
+    - Class: 114
+      Script: {instanceID: 11090}
+    - Class: 114
+      Script: {instanceID: 11142}
+    - Class: 114
+      Script: {instanceID: 11190}
+    - Class: 114
+      Script: {instanceID: 11432}
+    - Class: 114
+      Script: {instanceID: 11520}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -136,6 +151,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: CanvasScaler
+  - hash:
+      serializedVersion: 2
+      Hash: 49dffeb1e9c4048498843b3d8d261e2c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: GracesGames.SimpleFileBrowser.Scripts.UI
+    className: PortraitUserInterface
   - hash:
       serializedVersion: 2
       Hash: 984dcc0ba3707b7691fbdca8ff508d28
@@ -168,7 +189,7 @@ ScriptsOnlyBuild:
     className: TMP_ScrollbarEventHandler
   - hash:
       serializedVersion: 2
-      Hash: e2e685b3c0472cca8d29d2a931ab37d6
+      Hash: 0fa644e1adc54fe26b4cda2be740f74b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ChooseClassPageScript
@@ -180,7 +201,7 @@ ScriptsOnlyBuild:
     className: SkillButtonScript
   - hash:
       serializedVersion: 2
-      Hash: 569370dd7d7a376d65688ce8c4902a13
+      Hash: b748132a3e5d237134bad51dab024996
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player_Info
@@ -282,6 +303,12 @@ ScriptsOnlyBuild:
     className: AnimationTrack
   - hash:
       serializedVersion: 2
+      Hash: 49dffeb1e9c4048498843b3d8d261e2c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: GracesGames.SimpleFileBrowser.Scripts.UI
+    className: LandscapeUserInterface
+  - hash:
+      serializedVersion: 2
       Hash: cf9f5cf2c3145a37ac07f00e50e460f9
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -306,7 +333,7 @@ ScriptsOnlyBuild:
     className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: e0fac853085750d4a2374b03b86c4853
+      Hash: 99914fa04bb39f2f293daff110d00fde
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: StartPageScript
@@ -324,7 +351,7 @@ ScriptsOnlyBuild:
     className: Shadow
   - hash:
       serializedVersion: 2
-      Hash: aa0155573500851dba57312bad500f49
+      Hash: 186b0ed4ee27c3e31daab7f45890d9d9
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CreatePlayerScript
@@ -372,7 +399,7 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
-      Hash: 4d48d52427b0587ea61c18533ebb399a
+      Hash: 38c01ef4437d194f159bd3596675ebbc
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerCardPageScript
@@ -390,13 +417,19 @@ ScriptsOnlyBuild:
     className: ScrollRect
   - hash:
       serializedVersion: 2
+      Hash: c22beede25c7f74b70bcd224b385b421
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: GracesGames.SimpleFileBrowser.Scripts
+    className: FileBrowser
+  - hash:
+      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: SignalTrack
   - hash:
       serializedVersion: 2
-      Hash: 70291a436ab859229f45bfd69dd1a20e
+      Hash: ce59cb4c22b1e05173b4ccbec1fc2a23
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ChooseSkillPageScript
@@ -510,7 +543,7 @@ ScriptsOnlyBuild:
     className: TransmitPageScript
   - hash:
       serializedVersion: 2
-      Hash: e5393db76577ff485a5bc1fbaa13053a
+      Hash: 9a6db8b346ebad81ed2bdba3bc0f6106
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ChooseSidePageScript
@@ -520,6 +553,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: AudioTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 601c58b1894f9ee4e4f29b8ad57d8a42
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: GracesGames.SimpleFileBrowser.Scripts
+    className: DemoCaller
   - hash:
       serializedVersion: 2
       Hash: ae83e830e7a90c0aff918c4c2e520825
@@ -532,6 +571,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools
     className: BeforeAfterTestCommandState
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: GracesGames.SimpleFileBrowser.Scripts.UI
+    className: FileButton
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -558,7 +603,7 @@ ScriptsOnlyBuild:
     className: TMP_ColorGradient
   - hash:
       serializedVersion: 2
-      Hash: cc43f0fc5d52ea6eb2e8d1d0096c9750
+      Hash: 56bb93f998a1d42a8830e80f5a089573
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ChooseRankPageScript
@@ -568,6 +613,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
     className: PlayModeRunnerCallback
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: GracesGames.Common.Scripts
+    className: Utilities
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -606,7 +657,7 @@ ScriptsOnlyBuild:
     className: Dropdown
   - hash:
       serializedVersion: 2
-      Hash: b33339b368afd5c86782c26946ba07d9
+      Hash: 9b096eba79cf8a10ea4c79715ee319b3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: BasePageScript
@@ -649,4 +700,4 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/Main.unity
-  playerPath: C:/Users/Andrew.Wu/Desktop/TestBuild/LARP Framework.exe
+  playerPath: C:/Users/Icarus0508/Desktop/LarpSystem/LARP Framework.exe

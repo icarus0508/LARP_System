@@ -122,7 +122,7 @@ public class Skill_Info_Manager : MonoBehaviour
 
         DataIsReady = true;
 
-       // ExportSkillListToExcel();
+        ExportSkillListToExcel();
     }
   
     private void SettingUpSkillList()
