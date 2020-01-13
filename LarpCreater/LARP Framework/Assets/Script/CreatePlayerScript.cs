@@ -85,6 +85,49 @@ public class CreatePlayerScript : BasePageScript
                     OnTouchMouseUp();
                 }
             }
+
+            if(Input.touchCount>0)
+            {
+                Touch touch = Input.GetTouch(0);
+
+                // Move the cube if the screen has the finger moving.
+                if (touch.phase == TouchPhase.Moved)
+                {
+                    Vector2 pos = touch.position;
+                    pos.x = (pos.x - 500) / 500;
+                    pos.y = (pos.y - 800) / 800;
+
+                    Vector3 tPosition = new Vector3(pos.x, pos.y,0.0f);
+                    if (tPosition.x < 358)
+                        tPosition.x = 358;
+                    if (tPosition.x > 365)
+                        tPosition.x = 365;
+                    if (tPosition.y < 382)
+                        tPosition.y = 382;
+                    if (tPosition.y > 391)
+                        tPosition.y = 391;
+
+
+                    TargetImage_GO.transform.SetPositionAndRotation(tPosition, Quaternion.identity);
+                }
+
+                if (Input.touchCount == 2)
+                {
+                    touch = Input.GetTouch(1);
+
+                    if (touch.phase == TouchPhase.Began)
+                    {
+                        // Halve the size of the cube.
+                        transform.localScale = new Vector3(0.75f, 0.75f, 0.75f);
+                    }
+
+                    if (touch.phase == TouchPhase.Ended)
+                    {
+                        // Restore the regular size of the cube.
+                        transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+                    }
+                }
+            }
         }
 
     }
@@ -103,14 +146,13 @@ public class CreatePlayerScript : BasePageScript
 
     public void OnClickCapture()
     {
-      //  TargetImage_GO.GetComponent<Image>().sprite.texture.width = CameraCaputre_Go.GetComponent<WebCamera>().capturedPic.texture.width;
-      //  TargetImage_GO.GetComponent<Image>().sprite.texture.height = CameraCaputre_Go.GetComponent<WebCamera>().capturedPic.texture.height;
+
         TargetImage_GO.GetComponent<Image>().sprite = CameraCaputre_Go.GetComponent<WebCamera>().capturedPic;
         CameraCaputre_Go.SetActive(false);
 
 
-        TargetImage_GO.transform.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, TargetImage_GO.GetComponent<Image>().sprite.texture.width);
-        TargetImage_GO.transform.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, TargetImage_GO.GetComponent<Image>().sprite.texture.height);
+        TargetImage_GO.transform.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, TargetImage_GO.GetComponent<Image>().sprite.texture.width*2);
+        TargetImage_GO.transform.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, TargetImage_GO.GetComponent<Image>().sprite.texture.height*2);
         ImageCanBeScaleAndMove = true;
     }
 
