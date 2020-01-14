@@ -24,7 +24,7 @@ public class StartPageScript : BasePageScript
         if(CheckDataIsReady())
         {
             StartSystemButton.SetActive(true);
-            LoadSystemButton.SetActive(true);
+          //  LoadSystemButton.SetActive(true);
         }
     }
 

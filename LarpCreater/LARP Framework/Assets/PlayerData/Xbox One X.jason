@@ -1,0 +1,17 @@
+{
+    "Name": "XBOX ONE X",
+    "Photo": "/PlayerData/PlayerMainPic/XBOX ONE X.png",
+    "Rank": "S",
+    "Clasz": "W",
+    "Sided": "JD",
+    "withHelmet": true,
+    "withHeavyEquip": true,
+    "HP": 11,
+    "ArrowCount": 0,
+    "ThrowCount": 0,
+    "MagicCount": 0,
+    "SkillNames": [
+        "大師耐力",
+        "聖療術"
+    ]
+}

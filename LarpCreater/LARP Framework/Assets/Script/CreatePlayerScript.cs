@@ -27,6 +27,7 @@ public class CreatePlayerScript : BasePageScript
 
     public GameObject PlayerDisplayImgGO;
 
+    public GameObject FinalCheckBtnGO;
 
 
     // Define a file extension
@@ -38,6 +39,8 @@ public class CreatePlayerScript : BasePageScript
     private bool MoushTouchWorkingFlg = false;
     private float ScalellValue = 1.0f;
     private bool ImageCanBeScaleAndMove = false;
+
+    private float initialFingersDistance ;
 
     // Start is called before the first frame update
     void Start()
@@ -88,50 +91,100 @@ public class CreatePlayerScript : BasePageScript
 
             if(Input.touchCount>0)
             {
-                Touch touch = Input.GetTouch(0);
-
-                // Move the cube if the screen has the finger moving.
-                if (touch.phase == TouchPhase.Moved)
+                Touch judageTouch = Input.GetTouch(0);
+                Vector3 tPosForJudage = new Vector3(judageTouch.position.x, judageTouch.position.y, 0.0f);
+                if (InMoustTouchControllZone(tPosForJudage))
                 {
+                    Touch touch = Input.GetTouch(0);
+
                     Vector2 pos = touch.position;
-                    pos.x = (pos.x - 500) / 500;
-                    pos.y = (pos.y - 800) / 800;
-
-                    Vector3 tPosition = new Vector3(pos.x, pos.y,0.0f);
-                    if (tPosition.x < 358)
-                        tPosition.x = 358;
-                    if (tPosition.x > 365)
-                        tPosition.x = 365;
-                    if (tPosition.y < 382)
-                        tPosition.y = 382;
-                    if (tPosition.y > 391)
-                        tPosition.y = 391;
-
-
-                    TargetImage_GO.transform.SetPositionAndRotation(tPosition, Quaternion.identity);
-                }
-
-                if (Input.touchCount == 2)
-                {
-                    touch = Input.GetTouch(1);
-
-                    if (touch.phase == TouchPhase.Began)
+                    FetchMouseMouchPostion.x = pos.x;
+                    FetchMouseMouchPostion.y = pos.y;
+                    if (Input.touchCount == 1)
                     {
-                        // Halve the size of the cube.
-                        transform.localScale = new Vector3(0.75f, 0.75f, 0.75f);
+                        if(touch.phase == TouchPhase.Began)
+                        {
+                            OnTouchMouseDown();
+                        }
+                        if(touch.phase == TouchPhase.Ended)
+                        {
+                            OnTouchMouseUp();
+                        }
+                        if (touch.phase == TouchPhase.Moved)
+                        {
+                            OnTouchMouseMove();
+                        }
+
+                    }
+                    else
+                    {
+                        if (touch.phase == TouchPhase.Ended)
+                        {
+                            OnTouchMouseUp();
+                        }
                     }
 
-                    if (touch.phase == TouchPhase.Ended)
+                    if (Input.touchCount == 2)
                     {
-                        // Restore the regular size of the cube.
-                        transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+
+                        //First set the initial distance between fingers so you can compare.
+                        if (touch.phase == TouchPhase.Began)
+                        {
+                            initialFingersDistance = Vector2.Distance(Input.touches[0].position, Input.touches[1].position);
+                        }
+                        else
+                        {
+                            float currentFingersDistance  = Vector2.Distance(Input.touches[0].position, Input.touches[1].position);
+
+                            float scaleFactor  = currentFingersDistance / initialFingersDistance;
+
+
+                            if (scaleFactor >= 1)
+                            {
+                                ScalellValue += 0.01f;
+                                if (ScalellValue > 3.0f)
+                                {
+                                    ScalellValue = 3.0f;
+                                }
+                            }
+
+                            if (scaleFactor < 1)
+                            {
+                                ScalellValue -= 0.01f;
+                                if (ScalellValue < 0.2f)
+                                {
+                                    ScalellValue = 0.2f;
+                                }
+                            }
+
+                            TargetImage_GO.transform.localScale = new Vector3(ScalellValue, ScalellValue, ScalellValue);
+                        }
                     }
                 }
+ 
             }
+
         }
 
+        if(IsReadyToNextPage())
+        {
+            FinalCheckBtnGO.SetActive(true);
+        }
+        else
+        {
+            FinalCheckBtnGO.SetActive(false);
+        }
     }
 
+    private bool IsReadyToNextPage()
+    {
+        if (playerInfo.Name =="")
+        {
+            return false;
+        }
+        return true;
+        
+    }
     private bool HasMouseMoved()
     {
         //I feel dirty even doing this 
@@ -290,6 +343,7 @@ public class CreatePlayerScript : BasePageScript
     private void OnEnable()
     {
         TransmitPage_GO.GetComponentInChildren<TransmitPageScript>(true).ForceSetNextPageBtnActive(false);
+        FinalCheckBtnGO.SetActive(false);
     }
 
 }
