@@ -18,6 +18,9 @@ public class ChooseRankPageScript : BasePageScript
     public Material DefaultMat = null;
     public Material GrayScaleMat = null;
 
+    public GameObject NextPageForFigher = null;
+    public GameObject NextPageForVillager = null;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -79,7 +82,7 @@ public class ChooseRankPageScript : BasePageScript
             }
 
         InitialPage();
-        TransmitPage_GO.GetComponentInChildren<TransmitPageScript>(true).ForceSetNextPageBtnActive(true);
+        TransmitPage_GO.GetComponentInChildren<TransmitPageScript>(true).ForceSetNextPageBtnActive(false);
     }
 
     private void OnDisable()
@@ -101,6 +104,14 @@ public class ChooseRankPageScript : BasePageScript
         RankA_Btn.GetComponent<Image>().material = GrayScaleMat;
         RankS_Btn.GetComponent<Image>().material = GrayScaleMat;
         RankN_Btn.GetComponent<Image>().material = DefaultMat;
+
+        playerInfo.skillPointAva = 6;
+        playerInfo.HP = 1;
+        playerInfo.SuperPointAva = 0;
+        playerInfo.skillPointAvaMax = playerInfo.skillPointAva;
+        playerInfo.SuperPointAvaMax = playerInfo.SuperPointAva;
+
+        playerInfo.Clasz = "V";
     }
 
     public void OnSelectRankC()
@@ -169,5 +180,20 @@ public class ChooseRankPageScript : BasePageScript
         playerInfo.SuperPointAva = 1;
         playerInfo.skillPointAvaMax = playerInfo.skillPointAva;
         playerInfo.SuperPointAvaMax = playerInfo.SuperPointAva;
+    }
+
+    public void OnClickNextPage()
+    {
+        if (playerInfo.Rank != "N")
+        {
+            this.NextPage = NextPageForFigher;
+
+        }
+        else
+        {
+            this.NextPage = NextPageForVillager;
+        }
+
+        TransmitPage_GO.GetComponentInChildren<TransmitPageScript>(true).NextPage();
     }
 }

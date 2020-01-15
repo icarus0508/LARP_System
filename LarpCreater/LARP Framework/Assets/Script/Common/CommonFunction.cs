@@ -60,6 +60,11 @@ public class CommonFunction : MonoBehaviour
 
     public static bool IsRankAve(string rank, string avarank)
     {
+        if(rank =="N")
+        {
+            if (avarank == "V")
+                return true;
+        }
         if (avarank == "C")
         {
             if (rank == "C" || rank == "B" || rank == "A" || rank == "S")

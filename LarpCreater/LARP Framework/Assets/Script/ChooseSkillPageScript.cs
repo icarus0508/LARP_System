@@ -12,6 +12,7 @@ public class ChooseSkillPageScript : BasePageScript
     public GameObject WClaszGO;
     public GameObject AClaszGO;
     public GameObject MClaszGO;
+    public GameObject VClaszGO;
 
     public GameObject NormalTitleGO;
     public GameObject SRankTitleGO;
@@ -157,6 +158,35 @@ public class ChooseSkillPageScript : BasePageScript
         {
             ChangeToSBtnGO.SetActive(false);
         }
+
+        switch(playerInfo.Clasz)
+        {
+            case "W":
+                WClaszGO.SetActive(true);
+                AClaszGO.SetActive(false);
+                MClaszGO.SetActive(false);
+                VClaszGO.SetActive(false);
+                break;
+            case "A":
+                WClaszGO.SetActive(false);
+                AClaszGO.SetActive(true);
+                MClaszGO.SetActive(false);
+                VClaszGO.SetActive(false);
+                break;
+            case "M":
+                WClaszGO.SetActive(false);
+                AClaszGO.SetActive(false);
+                MClaszGO.SetActive(true);
+                VClaszGO.SetActive(false);
+                break;
+            case "N":
+            default:
+                WClaszGO.SetActive(false);
+                AClaszGO.SetActive(false);
+                MClaszGO.SetActive(false);
+                VClaszGO.SetActive(true);
+                break;
+        }
     }
 
     // Update is called once per frame
@@ -286,6 +316,7 @@ public class ChooseSkillPageScript : BasePageScript
 
     private bool CheckIfDecideBtnAvaliable()
     {
+        if (playerInfo.Rank == "N") return true;
         if(playerInfo.skillPointAva ==0)
         {
             if (playerInfo.SuperPointAva == 0)
