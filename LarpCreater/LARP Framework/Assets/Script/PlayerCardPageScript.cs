@@ -282,7 +282,7 @@ public class PlayerCardPageScript : BasePageScript
             ClazeSpecialSkillGO.SetActive(true);
         }
 
-        if (playerInfo.Clasz == "N")
+        if (playerInfo.Clasz == "V")
         {
             _ClaszGO.GetComponent<Image>().sprite = Skill_Info_Manager.N_ClaszImg;
             ClazeSpecialSkillGO.SetActive(false);
@@ -331,7 +331,7 @@ public class PlayerCardPageScript : BasePageScript
 
         if (playerInfo.Sided == "NT")
         {
-            SideImageGO.GetComponent<Image>().sprite = Skill_Info_Manager.Side_NTImg;
+            SideImageGO.SetActive(false);
         }
 
         InitPlayerSkillAndPropoertyGrid();
