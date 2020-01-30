@@ -1,10 +1,10 @@
 {
     "SkillList": [
         {
-            "Name": "治療術",
+            "Name": "治療",
             "ImageName": "治療術.png",
             "Description": "治療友方單位",
-            "DetailDescription": "每5秒治療1點生命，最多9次，無法治療自己。\n\n施放方式:\n於受傷目標1步距離內，傷者須呈現蹲姿或傷姿，以合理演出道具治療目標。\n引導每5秒回復1點生命，過程中雙方之一移動或承受傷害就會中斷治療。\n使用完9次後，需充能沙漏1次與消耗1枚金幣才能重制次數。",
+            "DetailDescription": "治療目標回復2點生命，最多3次，無法治療自己。\n\n施放方式:\n治療師可攜帶3條繃帶，將繃帶綁在受傷目標上可回復2點生命。\n目標死後將繃帶卸除於復活點，在復活點有大於3條繃帶時，治療師可消耗1枚金幣補充3條繃帶。",
             "AvaClass": "W/A/M",
             "PreSkillName": "",
             "HPBuff": "",
@@ -17,7 +17,7 @@
         {
             "Name": "斬殺",
             "ImageName": "尾刀回血.png",
-            "Description": "尾刀可回1點生命",
+            "Description": "處決目標回血",
             "DetailDescription": "處決目標可回復1點生命。\n\n施放方式:\n對已經被擊敗的目標演出處決，可回復1點生命。",
             "AvaClass": "W/A/M",
             "PreSkillName": "",
@@ -33,7 +33,7 @@
             "ImageName": "背襲回血.png",
             "Description": "擊中背部回血",
             "DetailDescription": "擊中背部回1HP，每個目標只能1次。\n\n施放方式:\n被動\n耗費1金幣才重制目標次數。",
-            "AvaClass": "W/A/M",
+            "AvaClass": "W/A",
             "PreSkillName": "",
             "HPBuff": "",
             "MPBuff": "",
@@ -43,7 +43,7 @@
             "MaxCost": "1"
         },
         {
-            "Name": "救贖",
+            "Name": "救援",
             "ImageName": "救贖.png",
             "Description": "復活友方玩家",
             "DetailDescription": "犧牲1點生命上限，以1點生命復活一名友方\n\n施放方式:\n於已死亡的友方目標1步距離內，將1點生命上限轉給目標，使其已1點生命復活。\n自己失去的生命上限無法以治療補回，但重新復活可重置。",
@@ -186,7 +186,7 @@
             "Name": "法陣部署",
             "ImageName": "法陣部署.png",
             "Description": "學會佈屬法陣",
-            "DetailDescription": "可使用法帶擺放法陣\n排成直線作為壁壘，人與敵方遠程無法通過。\n排成圓形可加速施法，治療與法球只需1秒\n\n施放方式:\n準備3公尺的彩帶(建議加裝重物)\n展開成直線時，形成人無法通過的壁障，投射物仍可通過。\n排成圓形時，站在其圓圈內，治療、法球、與其他讀條技能，施放只需1秒。\n法陣可回收重新布局。",
+            "DetailDescription": "可使用法帶擺放法陣\n排成直線作為壁壘，敵方遠程無法通過。\n排成圓形可加速施法，治療與法球只需1秒\n\n施放方式:\n準備3公尺的彩帶(建議加裝重物)\n展開成直線時，可抵擋敵方投射物，人仍可通過。\n排成圓形時，站在其圓圈內，治療、法球、與其他讀條技能，施放只需1秒。\n法陣可回收重新布局。",
             "AvaClass": "M",
             "PreSkillName": "",
             "HPBuff": "",
@@ -229,7 +229,7 @@
             "ImageName": "祝福.png",
             "Description": "強化友方生命",
             "DetailDescription": "攜帶用1條祝福法帶，為友方施加+1HP效果。\n\n施放方式:\n將祝福法帶綁在目標身上，可回收或更換目標。",
-            "AvaClass": "W/A/M",
+            "AvaClass": "M",
             "PreSkillName": "",
             "HPBuff": "",
             "MPBuff": "",
@@ -425,13 +425,13 @@
             "ImageName": "貿易.png",
             "Description": "販售強化道具",
             "DetailDescription": "\n以金幣交易物品，販售強化道具\n\n買賣GM所提供的強化道具，可看心情+1-1。\n販售:\n+1生命水晶2金\n+1技能水晶2金\n+3大形生命水晶6金\n大型技能水晶6金\n兵書:戰吼5金(只能於下回合開場使用)\n兵書:衝鋒5金(只能於下回合開場使用)\n兵書:箭雨5金(只能於下回合開場使用)\n任務道具1金\n投射道具5個1金\n\n收購:\n單手武器/盾 1金\n大型武器/盾 2金\n無用任務道具5個1金\n\n",
-            "AvaClass": "V",
+            "AvaClass": " ",
             "PreSkillName": "",
             "HPBuff": "",
             "MPBuff": "",
             "ArrowBuff": "",
             "ThrowBuff": "",
-            "AvaRank": "V",
+            "AvaRank": "C",
             "MaxCost": "1"
         },
         {
@@ -445,7 +445,7 @@
             "MPBuff": "",
             "ArrowBuff": "",
             "ThrowBuff": "",
-            "AvaRank": "V",
+            "AvaRank": "",
             "MaxCost": "1"
         },
         {
@@ -459,7 +459,7 @@
             "MPBuff": "",
             "ArrowBuff": "",
             "ThrowBuff": "",
-            "AvaRank": "V",
+            "AvaRank": "",
             "MaxCost": "1"
         },
         {
@@ -473,7 +473,7 @@
             "MPBuff": "",
             "ArrowBuff": "",
             "ThrowBuff": "",
-            "AvaRank": "V",
+            "AvaRank": "",
             "MaxCost": "1"
         },
         {
@@ -487,7 +487,7 @@
             "MPBuff": "",
             "ArrowBuff": "",
             "ThrowBuff": "",
-            "AvaRank": "V",
+            "AvaRank": "",
             "MaxCost": "1"
         },
         {
@@ -501,15 +501,29 @@
             "MPBuff": "",
             "ArrowBuff": "",
             "ThrowBuff": "",
-            "AvaRank": "V",
+            "AvaRank": "",
             "MaxCost": "1"
         },
         {
             "Name": "自我恢復",
             "ImageName": "自我恢復.png",
             "Description": "對自己治療",
-            "DetailDescription": "每10秒治療自己1點生命，無法治療他人。\n最多9次。\n\n施放方式:\n以合理道具為自己治療，引導每10秒回復1點生命。\n需明顯演出治療動作，過程中移動或承受傷害就會中斷治療。\n使用完9次後，需耗費1金幣才能重制次數。",
+            "DetailDescription": "消耗補給治療自己4點生命，無法治療他人。\n\n施放方式:\n於復活點或村莊，使用治療藥水、飲食、或其他合理道具。\n每消耗1枚金幣可治療1次。\n(第一次使用就需消耗)",
             "AvaClass": "W/A/M",
+            "PreSkillName": "",
+            "HPBuff": "",
+            "MPBuff": "",
+            "ArrowBuff": "",
+            "ThrowBuff": "",
+            "AvaRank": "C",
+            "MaxCost": "1"
+        },
+        {
+            "Name": "潛行",
+            "ImageName": "潛行.png",
+            "Description": "挑選進場位置",
+            "DetailDescription": "潛行於場邊繞行，於有利時機進場。\n\n施放方式:\n使用樹葉隱匿身體後進入潛行，將視為不可見目標，無法被攻擊。\n持樹葉時可於場邊繞行，拋棄樹葉後即進場，一但進場無法再回到潛行。\n\n陣亡後可以靈魂狀態撿回樹葉、或由其他場務人員拾回，下條命可再度使用。",
+            "AvaClass": "W/A",
             "PreSkillName": "",
             "HPBuff": "",
             "MPBuff": "",
