@@ -8,10 +8,10 @@ public class StartPageScript : BasePageScript
     public GameObject StartSystemButton = null;
     public GameObject LoadSystemButton = null;
 
-    
-
     public GameObject PlayerInfoGO = null;
 
+    public GameObject fileBrowserPrefab;
+    public string[] FileExtensions;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +24,7 @@ public class StartPageScript : BasePageScript
         if(CheckDataIsReady())
         {
             StartSystemButton.SetActive(true);
-          //  LoadSystemButton.SetActive(true);
+            LoadSystemButton.SetActive(true);
         }
     }
 
@@ -42,15 +42,32 @@ public class StartPageScript : BasePageScript
 
     public void LoadCharacterInfo()
     {
-        Player_Save_Info tPSI = 
-        CommonFunction.LoadPlayerSaveInfoJason(Application.dataPath + "PlayerData/testJason.jason");
+        OpenFileBrowser();
 
-        Player_Info tPI= PlayerInfoGO.GetComponent<Player_Info>();
+       
+    }
+    private void OpenFileBrowser()
+    {
+        GameObject fileBrowserObject = Instantiate(fileBrowserPrefab, transform);
+        fileBrowserObject.name = "FileBrowser";
+        GracesGames.SimpleFileBrowser.Scripts.FileBrowser fileBrowserScript =
+            fileBrowserObject.GetComponent<GracesGames.SimpleFileBrowser.Scripts.FileBrowser>();
+
+        fileBrowserScript.SetupFileBrowser(GracesGames.SimpleFileBrowser.Scripts.ViewMode.Portrait);
+
+        fileBrowserScript.OpenFilePanel(FileExtensions);
+        fileBrowserScript.OnFileSelect += LoadPlayerInfoUsingPath;
+    }
+    private void LoadPlayerInfoUsingPath(string path)
+    {
+        Player_Save_Info tPSI =
+        CommonFunction.LoadPlayerSaveInfoJason(path);
+
+        Player_Info tPI = PlayerInfoGO.GetComponent<Player_Info>();
         tPI.LoadFromPlayerSaveInfo(tPSI);
 
-        
+        TransmitPage_GO.GetComponentInChildren<TransmitPageScript>(true).NextPage();
     }
-
     private void OnEnable()
     {
         TransmitPage_GO.GetComponentInChildren<TransmitPageScript>(true).ForceSetNextPageBtnActive(false);

@@ -6563,6 +6563,10 @@ MonoBehaviour:
   StartSystemButton: {fileID: 1914353210}
   LoadSystemButton: {fileID: 402911335}
   PlayerInfoGO: {fileID: 965728354}
+  fileBrowserPrefab: {fileID: 1760643962491650, guid: 4599b5ba3543545db92bb18160cea721,
+    type: 3}
+  FileExtensions:
+  - jason
 --- !u!114 &915251177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10408,6 +10412,7 @@ MonoBehaviour:
   FinalCheckBtnGO: {fileID: 442865859}
   FileExtensions:
   - png
+  - jpg
 --- !u!1 &1449925459
 GameObject:
   m_ObjectHideFlags: 0

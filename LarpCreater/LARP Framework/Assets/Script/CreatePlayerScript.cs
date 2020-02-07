@@ -45,15 +45,6 @@ public class CreatePlayerScript : BasePageScript
     // Start is called before the first frame update
     void Start()
     {
-        if (image_GO)
-        {
-            playerImage = image_GO.GetComponent<Image>();
-
-        }
-        if (playerIn_GO)
-        {
-            playerInfo = playerIn_GO.GetComponent<Player_Info>();
-        }
 
     }
 
@@ -329,7 +320,9 @@ public class CreatePlayerScript : BasePageScript
 
         Texture2D tTex = CommonFunction.TextureToTexture2D(PlayerDisplayImgGO.GetComponent<RawImage>().texture);
         playerInfo.PlayerPhoto = Sprite.Create(tTex, new Rect(0, 0, tTex.width, tTex.height), new Vector2(0, 0));
-
+        playerInfo.PlayerPhotoOri = TargetImage_GO.GetComponent<Image>().sprite;
+        playerInfo.PlayerImgScalellValue = TargetImage_GO.transform.localScale;
+        playerInfo.PlayerImgPosition = TargetImage_GO.transform.position;
         TransmitPage_GO.GetComponentInChildren<TransmitPageScript>(true).NextPage();
     }
 
@@ -344,6 +337,35 @@ public class CreatePlayerScript : BasePageScript
     {
         TransmitPage_GO.GetComponentInChildren<TransmitPageScript>(true).ForceSetNextPageBtnActive(false);
         FinalCheckBtnGO.SetActive(false);
+
+
+        if (playerImage==null)
+        {
+            playerImage = image_GO.GetComponent<Image>();
+
+        }
+        if (playerInfo==null)
+        {
+            playerInfo = playerIn_GO.GetComponent<Player_Info>();
+        }
+
+        if(playerInfo.Photo != "")
+        {
+            Image tImgGO = TargetImage_GO.GetComponent<Image>();
+            Texture2D tImg = CommonFunction.LoadPNG(Application.dataPath + playerInfo.Photo);
+            tImgGO.sprite = Sprite.Create(tImg, new Rect(0, 0, tImg.width, tImg.height), new Vector2(0, 0));
+            //TargetImage_GO.transform.localScale = playerInfo.PlayerImgScalellValue;
+            //Vector3 tPosition = new Vector3(TargetImage_GO.transform.localPosition.x,
+            //                    TargetImage_GO.transform.localPosition.y, 0);
+            //TargetImage_GO.transform.localPosition = tPosition;
+            RectTransform rt = TargetImage_GO.GetComponent<RectTransform>();
+            rt.sizeDelta = new Vector2(tImg.width, tImg.height);
+            ScalellValue = playerInfo.PlayerImgScalellValue.x;
+            TargetImage_GO.transform.localScale = new Vector3(ScalellValue, ScalellValue, ScalellValue);
+
+            ImageCanBeScaleAndMove = true;
+        }
+
     }
 
 }

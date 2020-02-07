@@ -21,7 +21,9 @@ public class Player_Save_Info
 
     public List<string> SkillNames = new List<string>();
 
-
+    //Recore Player Img Transform
+    public Vector3 PlayerImgPosition;
+    public Vector3 PlayerImgScalellValue;
     public string SaveToString()
     {
         return JsonUtility.ToJson(this,true);

@@ -7,6 +7,7 @@ public class Player_Info : MonoBehaviour
     public string Name;
     public string Photo;
     public Sprite PlayerPhoto;
+    public Sprite PlayerPhotoOri;
     public string Rank = "C";
     public string Clasz = "W";
     public string Sided = "BI";
@@ -23,6 +24,10 @@ public class Player_Info : MonoBehaviour
 
     public int skillPointAvaMax = 0;
     public int SuperPointAvaMax = 0;
+
+    //Recore Player Img Transform
+    public Vector3 PlayerImgPosition;
+    public Vector3 PlayerImgScalellValue;
     // Start is called before the first frame update
     void Start()
     {
@@ -51,8 +56,10 @@ public class Player_Info : MonoBehaviour
         ArrowCount = psi.ArrowCount;
         ThrowCount = psi.ThrowCount;
         MagicCount = psi.MagicCount;
+        PlayerImgScalellValue = psi.PlayerImgScalellValue;
+        PlayerImgPosition = psi.PlayerImgPosition;
 
-        foreach(var s in psi.SkillNames)
+        foreach (var s in psi.SkillNames)
         {
             for(int i=0;i<Skill_Info_Manager.Skill_List.Count;i++)
             {

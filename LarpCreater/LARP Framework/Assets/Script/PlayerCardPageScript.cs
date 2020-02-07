@@ -367,7 +367,7 @@ public class PlayerCardPageScript : BasePageScript
         CommonFunction.SaveImg(Application.dataPath + playerPath +"/"+playerInfo.Name+ ".png", temTx);
 
         playerInfo.Photo = playerPath + "/PlayerMainPic/" + playerInfo.Name + ".png";
-        CommonFunction.SaveImg(Application.dataPath + playerInfo.Photo, playerInfo.PlayerPhoto.texture);
+        CommonFunction.SaveImg(Application.dataPath + playerInfo.Photo, playerInfo.PlayerPhotoOri.texture);
     }
     private void ExportPlayerInfo()
     {
@@ -384,6 +384,8 @@ public class PlayerCardPageScript : BasePageScript
         tPSI.ArrowCount = playerInfo.ArrowCount;
         tPSI.ThrowCount = playerInfo.ThrowCount;
         tPSI.MagicCount = playerInfo.MagicCount;
+        tPSI.PlayerImgScalellValue = playerInfo.PlayerImgScalellValue;
+        tPSI.PlayerImgPosition = playerInfo.PlayerImgPosition;
 
         foreach(var s in playerInfo.SkillIndexes)
         {
