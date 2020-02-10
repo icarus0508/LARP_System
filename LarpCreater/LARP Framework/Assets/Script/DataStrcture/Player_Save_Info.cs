@@ -21,6 +21,7 @@ public class Player_Save_Info
 
     public List<string> SkillNames = new List<string>();
 
+    public string SeriesNumber = "";
     //Recore Player Img Transform
     public Vector3 PlayerImgPosition;
     public Vector3 PlayerImgScalellValue;

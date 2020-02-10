@@ -10,6 +10,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
+using System.Globalization;
 
 public class PlayerCardPageScript : BasePageScript
 {
@@ -363,10 +364,12 @@ public class PlayerCardPageScript : BasePageScript
 
     private void ExportPlayerCard()
     {
-        var temTx = CommonFunction.TextureToTexture2D(MainPlayerCardGO.GetComponent<RawImage>().texture);
-        CommonFunction.SaveImg(Application.dataPath + playerPath +"/"+playerInfo.Name+ ".png", temTx);
 
-        playerInfo.Photo = playerPath + "/PlayerMainPic/" + playerInfo.Name + ".png";
+
+        var temTx = CommonFunction.TextureToTexture2D(MainPlayerCardGO.GetComponent<RawImage>().texture);
+        CommonFunction.SaveImg(Application.dataPath + playerPath + "/" + playerInfo.Name + playerInfo.SeriesNumber + ".png", temTx);
+
+        playerInfo.Photo = playerPath + "/PlayerMainPic/" + playerInfo.Name+ playerInfo.SeriesNumber + ".png";
         CommonFunction.SaveImg(Application.dataPath + playerInfo.Photo, playerInfo.PlayerPhotoOri.texture);
     }
     private void ExportPlayerInfo()
@@ -386,6 +389,7 @@ public class PlayerCardPageScript : BasePageScript
         tPSI.MagicCount = playerInfo.MagicCount;
         tPSI.PlayerImgScalellValue = playerInfo.PlayerImgScalellValue;
         tPSI.PlayerImgPosition = playerInfo.PlayerImgPosition;
+        tPSI.SeriesNumber = playerInfo.SeriesNumber;
 
         foreach(var s in playerInfo.SkillIndexes)
         {
@@ -396,10 +400,22 @@ public class PlayerCardPageScript : BasePageScript
         string tJason = tPSI.SaveToString();
 
 
-        CommonFunction.SaveJason(Application.dataPath + playerPath +"/"+ playerInfo.Name +".jason", tJason);
+        CommonFunction.SaveJason(Application.dataPath + playerPath +"/"+ playerInfo.Name+ playerInfo.SeriesNumber + ".jason", tJason);
     }
     public void OnExoprtData()
     {
+        if (playerInfo.SeriesNumber =="")
+        {
+            playerInfo.SeriesNumber =
+                                  "_" + 
+                                  //System.DateTime.Now.Year.ToString() +
+                                  //System.DateTime.Now.Month.ToString() +
+                                  //System.DateTime.Now.Day.ToString() +
+                                  System.DateTime.Now.Hour.ToString() +
+                                  System.DateTime.Now.Minute.ToString() +
+                                  System.DateTime.Now.Second.ToString();
+            
+        }
         ExportPlayerCard();
         ExportPlayerInfo();
         SendEmailToServer();
@@ -415,13 +431,13 @@ public class PlayerCardPageScript : BasePageScript
         mail.Subject = "TestMail_Subject";
         mail.Body = "This is for Testing SMTP mail";
 
-        Attachment JsonData = new Attachment(Application.dataPath + playerPath + "/" + playerInfo.Name + ".jason");
+        Attachment JsonData = new Attachment(Application.dataPath + playerPath + "/" + playerInfo.Name+ playerInfo.SeriesNumber + ".jason");
         mail.Attachments.Add(JsonData);
 
         Attachment UserFacePngData = new Attachment(Application.dataPath + playerInfo.Photo);
         mail.Attachments.Add(UserFacePngData);
 
-        Attachment PlayerCardPngData = new Attachment(Application.dataPath + playerPath + "/" + playerInfo.Name + ".png");
+        Attachment PlayerCardPngData = new Attachment(Application.dataPath + playerPath + "/" + playerInfo.Name+ playerInfo.SeriesNumber + ".png");
         mail.Attachments.Add(PlayerCardPngData);
 
 

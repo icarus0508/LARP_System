@@ -30,6 +30,8 @@ public class CreatePlayerScript : BasePageScript
     public GameObject FinalCheckBtnGO;
 
 
+    public GameObject NameTagGO;
+
     // Define a file extension
     public string[] FileExtensions;
 
@@ -354,10 +356,6 @@ public class CreatePlayerScript : BasePageScript
             Image tImgGO = TargetImage_GO.GetComponent<Image>();
             Texture2D tImg = CommonFunction.LoadPNG(Application.dataPath + playerInfo.Photo);
             tImgGO.sprite = Sprite.Create(tImg, new Rect(0, 0, tImg.width, tImg.height), new Vector2(0, 0));
-            //TargetImage_GO.transform.localScale = playerInfo.PlayerImgScalellValue;
-            //Vector3 tPosition = new Vector3(TargetImage_GO.transform.localPosition.x,
-            //                    TargetImage_GO.transform.localPosition.y, 0);
-            //TargetImage_GO.transform.localPosition = tPosition;
             RectTransform rt = TargetImage_GO.GetComponent<RectTransform>();
             rt.sizeDelta = new Vector2(tImg.width, tImg.height);
             ScalellValue = playerInfo.PlayerImgScalellValue.x;
@@ -366,6 +364,11 @@ public class CreatePlayerScript : BasePageScript
             ImageCanBeScaleAndMove = true;
         }
 
+        if(playerInfo.Name !="")
+        {
+            NameTagGO.GetComponent<Text>().text = playerInfo.Name;
+        }
+        
     }
 
 }

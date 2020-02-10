@@ -6854,6 +6854,7 @@ MonoBehaviour:
   Name: 
   Photo: 
   PlayerPhoto: {fileID: 0}
+  PlayerPhotoOri: {fileID: 0}
   Rank: C
   Clasz: W
   Sided: BI
@@ -6868,6 +6869,9 @@ MonoBehaviour:
   MagicCount: 0
   skillPointAvaMax: 0
   SuperPointAvaMax: 0
+  SeriesNumber: 
+  PlayerImgPosition: {x: 0, y: 0, z: 0}
+  PlayerImgScalellValue: {x: 0, y: 0, z: 0}
 --- !u!1 &967401307
 GameObject:
   m_ObjectHideFlags: 0
@@ -10410,6 +10414,7 @@ MonoBehaviour:
   TargetImage_GO: {fileID: 618399926}
   PlayerDisplayImgGO: {fileID: 344619336}
   FinalCheckBtnGO: {fileID: 442865859}
+  NameTagGO: {fileID: 1497578839}
   FileExtensions:
   - png
   - jpg

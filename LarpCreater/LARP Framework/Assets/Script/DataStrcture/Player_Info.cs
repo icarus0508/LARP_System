@@ -25,6 +25,8 @@ public class Player_Info : MonoBehaviour
     public int skillPointAvaMax = 0;
     public int SuperPointAvaMax = 0;
 
+    public string SeriesNumber = "";
+
     //Recore Player Img Transform
     public Vector3 PlayerImgPosition;
     public Vector3 PlayerImgScalellValue;
@@ -58,6 +60,7 @@ public class Player_Info : MonoBehaviour
         MagicCount = psi.MagicCount;
         PlayerImgScalellValue = psi.PlayerImgScalellValue;
         PlayerImgPosition = psi.PlayerImgPosition;
+        SeriesNumber = psi.SeriesNumber;
 
         foreach (var s in psi.SkillNames)
         {
