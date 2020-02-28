@@ -110,8 +110,8 @@ public class Skill_Info_Manager : MonoBehaviour
             tSkillInfo.AvaRank = result.Tables[set].Rows[i][10].ToString();
             tSkillInfo.MaxCost = result.Tables[set].Rows[i][11].ToString();
 
-            Texture2D tex = CommonFunction.LoadPNG(Application.dataPath + SkillIconDirectionPath + tSkillInfo.ImageName+".png");
-            tSkillInfo.Image = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(0, 0));
+         //   Texture2D tex = CommonFunction.LoadPNG(Application.dataPath + SkillIconDirectionPath + tSkillInfo.ImageName+".png");
+         //   tSkillInfo.Image = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(0, 0));
 
             Skill_List.Add(tSkillInfo);
         }

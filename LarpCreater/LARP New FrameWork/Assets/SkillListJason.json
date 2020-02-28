@@ -425,13 +425,13 @@
             "ImageName": "貿易",
             "Description": "販售強化道具",
             "DetailDescription": "\n以金幣交易物品，販售強化道具\n\n買賣GM所提供的強化道具，可看心情+1-1。\n販售:\n+1生命水晶2金\n+1技能水晶2金\n+3大形生命水晶6金\n大型技能水晶6金\n兵書:戰吼5金(只能於下回合開場使用)\n兵書:衝鋒5金(只能於下回合開場使用)\n兵書:箭雨5金(只能於下回合開場使用)\n任務道具1金\n投射道具5個1金\n\n收購:\n單手武器/盾 1金\n大型武器/盾 2金\n無用任務道具5個1金\n\n",
-            "AvaClass": " ",
+            "AvaClass": "V",
             "PreSkillName": "",
             "HPBuff": "",
             "MPBuff": "",
             "ArrowBuff": "",
             "ThrowBuff": "",
-            "AvaRank": "C",
+            "AvaRank": "V",
             "MaxCost": "1"
         },
         {
@@ -445,7 +445,7 @@
             "MPBuff": "",
             "ArrowBuff": "",
             "ThrowBuff": "",
-            "AvaRank": "",
+            "AvaRank": "V",
             "MaxCost": "1"
         },
         {
@@ -459,7 +459,7 @@
             "MPBuff": "",
             "ArrowBuff": "",
             "ThrowBuff": "",
-            "AvaRank": "",
+            "AvaRank": "V",
             "MaxCost": "1"
         },
         {
@@ -473,7 +473,7 @@
             "MPBuff": "",
             "ArrowBuff": "",
             "ThrowBuff": "",
-            "AvaRank": "",
+            "AvaRank": "V",
             "MaxCost": "1"
         },
         {
@@ -487,7 +487,7 @@
             "MPBuff": "",
             "ArrowBuff": "",
             "ThrowBuff": "",
-            "AvaRank": "",
+            "AvaRank": "V",
             "MaxCost": "1"
         },
         {
@@ -501,7 +501,7 @@
             "MPBuff": "",
             "ArrowBuff": "",
             "ThrowBuff": "",
-            "AvaRank": "",
+            "AvaRank": "V",
             "MaxCost": "1"
         },
         {
