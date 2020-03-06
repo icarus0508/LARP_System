@@ -98,6 +98,17 @@ public class SkillButtonScript : MonoBehaviour
 
     public void Reset()
     {
+        while(Skill_Info_Manager.Skill_List[SkillListIndex].PreSkillIndex != -1)
+        {
+            int PreSkillIndex = Skill_Info_Manager.Skill_List[SkillListIndex].PreSkillIndex;
+            SkillListIndex = PreSkillIndex;
+        }
+
+        SkillMainImgGO.GetComponent<Image>().sprite = Skill_Info_Manager.Skill_List[SkillListIndex].Image;
+        SkillNameGO.GetComponent<Text>().text = Skill_Info_Manager.Skill_List[SkillListIndex].Name;
+        SkillDescription.GetComponent<Text>().text = Skill_Info_Manager.Skill_List[SkillListIndex].Description;
+
+
         SkillMainImgGO.GetComponent<Image>().material = GrayScaleMat;
         SkillAva.GetComponent<Text>().text = "0";
     }
