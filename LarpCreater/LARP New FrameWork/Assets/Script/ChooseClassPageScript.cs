@@ -98,26 +98,26 @@ public class ChooseClassPageScript : BasePageScript
     {
         playerInfo.Clasz = clasz;
 
-        if(clasz=="W")
-        {
-            playerInfo.ArrowCount = 0;
-            playerInfo.ThrowCount = 0;
-            playerInfo.MagicCount = 0;
-        }
+        //if(clasz=="W")
+        //{
+        //    playerInfo.ArrowCount = 0;
+        //    playerInfo.ThrowCount = 0;
+        //    playerInfo.MagicCount = 0;
+        //}
 
-        if (clasz == "A")
-        {
-            playerInfo.ArrowCount = 12;
-            playerInfo.ThrowCount = 0;
-            playerInfo.MagicCount = 0;
-        }
+        //if (clasz == "A")
+        //{
+        //    playerInfo.ArrowCount = 12;
+        //    playerInfo.ThrowCount = 0;
+        //    playerInfo.MagicCount = 0;
+        //}
 
-        if (clasz == "M")
-        {
-            playerInfo.ArrowCount = 0;
-            playerInfo.ThrowCount = 0;
-            playerInfo.MagicCount = 10;
-        }
+        //if (clasz == "M")
+        //{
+        //    playerInfo.ArrowCount = 0;
+        //    playerInfo.ThrowCount = 0;
+        //    playerInfo.MagicCount = 10;
+        //}
 
     }
     public void OnSelectedWClass()

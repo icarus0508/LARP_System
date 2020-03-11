@@ -150,7 +150,8 @@ public class ChooseSkillPageScript : BasePageScript
         // TestScrollBar();
         InitialSkillList();
 
-        if(playerInfo.Rank =="S")
+       // if(playerInfo.Rank =="S")
+        if(playerInfo.SuperPointAvaMax!=0)
         {
             ChangeToSBtnGO.SetActive(true);
         }
@@ -222,6 +223,16 @@ public class ChooseSkillPageScript : BasePageScript
             }
 
         TransmitPage_GO.GetComponentInChildren<TransmitPageScript>(true).ForceSetNextPageBtnActive(false);
+
+       Class_Info tCI = CommonFunction.GetProperBClassBasic(playerInfo.Clasz, playerInfo.Rank);
+        if(tCI!=null)
+        {
+            playerInfo.skillPointAva = int.Parse(tCI.baseSkillPoint);
+            playerInfo.skillPointAvaMax = playerInfo.skillPointAva;
+
+            playerInfo.SuperPointAva = int.Parse(tCI.baseSurperSkillPoint);
+            playerInfo.SuperPointAvaMax = playerInfo.SuperPointAva;
+        }
     }
 
     private void OnDisable()

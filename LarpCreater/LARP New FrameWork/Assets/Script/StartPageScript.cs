@@ -31,6 +31,7 @@ public class StartPageScript : BasePageScript
    private  bool CheckDataIsReady()
     {
         if (!gameObject.GetComponentInChildren<Skill_Info_Manager>(true).DataIsReady) return false;
+        if (!gameObject.GetComponentInChildren<Classes_Info_Manager>(true).DataIsReady) return false;
 
         return true;
     }

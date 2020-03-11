@@ -162,5 +162,18 @@ public class CommonFunction : MonoBehaviour
         return tempPSI;
     }
 
+    public static Class_Info GetProperBClassBasic(string _class ,string _rank)
+    {
+        foreach(var c in  Classes_Info_Manager.classesBaseList)
+        {
+            if(c.className ==_class && c.rankName == _rank)
+            {
+                return c;
+            }
+        }
+
+        return null;
+    }
+
 
 }

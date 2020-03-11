@@ -124,11 +124,11 @@ public class ChooseRankPageScript : BasePageScript
         RankS_Btn.GetComponent<Image>().material = GrayScaleMat;
         RankN_Btn.GetComponent<Image>().material = GrayScaleMat;
 
-        playerInfo.skillPointAva = 1;
-        playerInfo.HP = 2;
-        playerInfo.SuperPointAva = 0;
-        playerInfo.skillPointAvaMax = playerInfo.skillPointAva;
-        playerInfo.SuperPointAvaMax = playerInfo.SuperPointAva;
+        //playerInfo.skillPointAva = 1;
+        //playerInfo.HP = 2;
+        //playerInfo.SuperPointAva = 0;
+        //playerInfo.skillPointAvaMax = playerInfo.skillPointAva;
+        //playerInfo.SuperPointAvaMax = playerInfo.SuperPointAva;
     }
 
     public void OnSelectRankB()
@@ -141,11 +141,11 @@ public class ChooseRankPageScript : BasePageScript
         RankS_Btn.GetComponent<Image>().material = GrayScaleMat;
         RankN_Btn.GetComponent<Image>().material = GrayScaleMat;
 
-        playerInfo.skillPointAva = 2;
-        playerInfo.HP = 3;
-        playerInfo.SuperPointAva = 0;
-        playerInfo.skillPointAvaMax = playerInfo.skillPointAva;
-        playerInfo.SuperPointAvaMax = playerInfo.SuperPointAva;
+        //playerInfo.skillPointAva = 2;
+        //playerInfo.HP = 3;
+        //playerInfo.SuperPointAva = 0;
+        //playerInfo.skillPointAvaMax = playerInfo.skillPointAva;
+        //playerInfo.SuperPointAvaMax = playerInfo.SuperPointAva;
     }
 
     public void OnSelectRankA()
@@ -158,11 +158,11 @@ public class ChooseRankPageScript : BasePageScript
         RankS_Btn.GetComponent<Image>().material = GrayScaleMat;
         RankN_Btn.GetComponent<Image>().material = GrayScaleMat;
 
-        playerInfo.skillPointAva = 3;
-        playerInfo.HP = 5;
-        playerInfo.SuperPointAva = 0;
-        playerInfo.skillPointAvaMax = playerInfo.skillPointAva;
-        playerInfo.SuperPointAvaMax = playerInfo.SuperPointAva;
+        //playerInfo.skillPointAva = 3;
+        //playerInfo.HP = 5;
+        //playerInfo.SuperPointAva = 0;
+        //playerInfo.skillPointAvaMax = playerInfo.skillPointAva;
+        //playerInfo.SuperPointAvaMax = playerInfo.SuperPointAva;
     }
 
     public void OnSelectRankS()
@@ -175,11 +175,11 @@ public class ChooseRankPageScript : BasePageScript
         RankS_Btn.GetComponent<Image>().material = DefaultMat;
         RankN_Btn.GetComponent<Image>().material = GrayScaleMat;
 
-        playerInfo.skillPointAva = 3;
-        playerInfo.HP = 7;
-        playerInfo.SuperPointAva = 1;
-        playerInfo.skillPointAvaMax = playerInfo.skillPointAva;
-        playerInfo.SuperPointAvaMax = playerInfo.SuperPointAva;
+        //playerInfo.skillPointAva = 3;
+        //playerInfo.HP = 7;
+        //playerInfo.SuperPointAva = 1;
+        //playerInfo.skillPointAvaMax = playerInfo.skillPointAva;
+        //playerInfo.SuperPointAvaMax = playerInfo.SuperPointAva;
     }
 
     public void OnClickNextPage()

@@ -218,6 +218,18 @@ public class PlayerCardPageScript : BasePageScript
         
 
     }
+    public void InitalPlayerBasePropertySetup()
+    {
+        Class_Info tCI = CommonFunction.GetProperBClassBasic(playerInfo.Clasz, playerInfo.Rank);
+        if(tCI!=null)
+        {
+            playerInfo.HP = int.Parse( tCI.baseHP);
+            playerInfo.ArrowCount = int.Parse(tCI.baseArrows);
+            playerInfo.MagicCount = int.Parse(tCI.baseMP);
+            playerInfo.ThrowCount = int.Parse(tCI.baseThrowing);
+           
+        }
+    }
     public void InitPlayerSkillAndPropoertyGrid()
     {
         CalutlateFinialPlayerProperty();
@@ -335,6 +347,7 @@ public class PlayerCardPageScript : BasePageScript
             SideImageGO.SetActive(false);
         }
 
+        InitalPlayerBasePropertySetup();
         InitPlayerSkillAndPropoertyGrid();
 
         if (playerInfo.withHelmet)
