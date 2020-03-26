@@ -65,6 +65,10 @@ public class ChooseSkillPageScript : BasePageScript
         {
             return false;
         }
+        if(!CommonFunction.IsSideAve(playerInfo.Sided,Skill_Info_Manager.Skill_List[Index].AvaSide))
+        {
+            return false;
+        }
         if(Skill_Info_Manager.Skill_List[Index].PreSkillIndex!=-1)
         {
             return false;

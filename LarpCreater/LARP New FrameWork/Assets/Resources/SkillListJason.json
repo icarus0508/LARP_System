@@ -12,7 +12,8 @@
             "ArrowBuff": "",
             "ThrowBuff": "",
             "AvaRank": "C",
-            "MaxCost": "1"
+            "MaxCost": "1",
+            "AvaSide": "ALL"
         },
         {
             "Name": "斬殺",
@@ -26,7 +27,8 @@
             "ArrowBuff": "",
             "ThrowBuff": "",
             "AvaRank": "C",
-            "MaxCost": "1"
+            "MaxCost": "1",
+            "AvaSide": "ALL"
         },
         {
             "Name": "背襲",
@@ -40,7 +42,8 @@
             "ArrowBuff": "",
             "ThrowBuff": "",
             "AvaRank": "C",
-            "MaxCost": "1"
+            "MaxCost": "1",
+            "AvaSide": "ALL"
         },
         {
             "Name": "優勢武裝",
@@ -54,7 +57,8 @@
             "ArrowBuff": "",
             "ThrowBuff": "",
             "AvaRank": "C",
-            "MaxCost": "1"
+            "MaxCost": "1",
+            "AvaSide": "ALL"
         },
         {
             "Name": "耐力",
@@ -68,7 +72,8 @@
             "ArrowBuff": "",
             "ThrowBuff": "",
             "AvaRank": "C",
-            "MaxCost": "3"
+            "MaxCost": "3",
+            "AvaSide": "ALL"
         },
         {
             "Name": "投持武器",
@@ -82,7 +87,8 @@
             "ArrowBuff": "",
             "ThrowBuff": "3",
             "AvaRank": "C",
-            "MaxCost": "2"
+            "MaxCost": "2",
+            "AvaSide": "ALL"
         },
         {
             "Name": "蓄力打擊",
@@ -96,7 +102,8 @@
             "ArrowBuff": "",
             "ThrowBuff": "",
             "AvaRank": "C",
-            "MaxCost": "1"
+            "MaxCost": "1",
+            "AvaSide": "ALL"
         },
         {
             "Name": "大型箭袋",
@@ -110,7 +117,8 @@
             "ArrowBuff": "+10",
             "ThrowBuff": "",
             "AvaRank": "C",
-            "MaxCost": "1"
+            "MaxCost": "1",
+            "AvaSide": "ALL"
         },
         {
             "Name": "火箭",
@@ -124,7 +132,8 @@
             "ArrowBuff": "+1",
             "ThrowBuff": "",
             "AvaRank": "C",
-            "MaxCost": "2"
+            "MaxCost": "2",
+            "AvaSide": "ALL"
         },
         {
             "Name": "多重箭",
@@ -138,7 +147,8 @@
             "ArrowBuff": "+3",
             "ThrowBuff": "",
             "AvaRank": "C",
-            "MaxCost": "1"
+            "MaxCost": "1",
+            "AvaSide": "ALL"
         },
         {
             "Name": "恐懼術",
@@ -152,7 +162,8 @@
             "ArrowBuff": "",
             "ThrowBuff": "",
             "AvaRank": "C",
-            "MaxCost": "1"
+            "MaxCost": "1",
+            "AvaSide": "ALL"
         },
         {
             "Name": "冰凍",
@@ -166,7 +177,8 @@
             "ArrowBuff": "",
             "ThrowBuff": "",
             "AvaRank": "C",
-            "MaxCost": "1"
+            "MaxCost": "1",
+            "AvaSide": "ALL"
         },
         {
             "Name": "加速法陣",
@@ -180,7 +192,8 @@
             "ArrowBuff": "",
             "ThrowBuff": "",
             "AvaRank": "C",
-            "MaxCost": "1"
+            "MaxCost": "1",
+            "AvaSide": "ALL"
         },
         {
             "Name": "魔法衛士",
@@ -194,7 +207,8 @@
             "ArrowBuff": "",
             "ThrowBuff": "",
             "AvaRank": "B",
-            "MaxCost": "1"
+            "MaxCost": "1",
+            "AvaSide": "ALL"
         },
         {
             "Name": "魔力充沛",
@@ -208,7 +222,8 @@
             "ArrowBuff": "",
             "ThrowBuff": "",
             "AvaRank": "C",
-            "MaxCost": "1"
+            "MaxCost": "1",
+            "AvaSide": "ALL"
         },
         {
             "Name": "祝福",
@@ -222,7 +237,8 @@
             "ArrowBuff": "",
             "ThrowBuff": "",
             "AvaRank": "C",
-            "MaxCost": "2"
+            "MaxCost": "2",
+            "AvaSide": "ALL"
         },
         {
             "Name": "大師耐力",
@@ -236,7 +252,8 @@
             "ArrowBuff": "",
             "ThrowBuff": "",
             "AvaRank": "C",
-            "MaxCost": "3"
+            "MaxCost": "3",
+            "AvaSide": "ALL"
         },
         {
             "Name": "強化耐力",
@@ -250,7 +267,8 @@
             "ArrowBuff": "",
             "ThrowBuff": "",
             "AvaRank": "C",
-            "MaxCost": "3"
+            "MaxCost": "3",
+            "AvaSide": "ALL"
         },
         {
             "Name": "投持大師",
@@ -264,7 +282,8 @@
             "ArrowBuff": "",
             "ThrowBuff": "6",
             "AvaRank": "C",
-            "MaxCost": "2"
+            "MaxCost": "2",
+            "AvaSide": "ALL"
         },
         {
             "Name": "火箭大師",
@@ -278,7 +297,8 @@
             "ArrowBuff": "+3",
             "ThrowBuff": "",
             "AvaRank": "C",
-            "MaxCost": "2"
+            "MaxCost": "2",
+            "AvaSide": "ALL"
         },
         {
             "Name": "群體治療",
@@ -292,7 +312,8 @@
             "ArrowBuff": "",
             "ThrowBuff": "",
             "AvaRank": "A",
-            "MaxCost": "1"
+            "MaxCost": "1",
+            "AvaSide": "ALL"
         },
         {
             "Name": "戰鬥武裝",
@@ -306,7 +327,8 @@
             "ArrowBuff": "",
             "ThrowBuff": "",
             "AvaRank": "A",
-            "MaxCost": "1"
+            "MaxCost": "1",
+            "AvaSide": "ALL"
         },
         {
             "Name": "震地擊",
@@ -320,7 +342,8 @@
             "ArrowBuff": "",
             "ThrowBuff": "",
             "AvaRank": "A",
-            "MaxCost": "1"
+            "MaxCost": "1",
+            "AvaSide": "ALL"
         },
         {
             "Name": "鏡面盾牌",
@@ -334,7 +357,8 @@
             "ArrowBuff": "",
             "ThrowBuff": "",
             "AvaRank": "A",
-            "MaxCost": "1"
+            "MaxCost": "1",
+            "AvaSide": "ALL"
         },
         {
             "Name": "擊退",
@@ -348,7 +372,8 @@
             "ArrowBuff": "",
             "ThrowBuff": "",
             "AvaRank": "B",
-            "MaxCost": "1"
+            "MaxCost": "1",
+            "AvaSide": "ALL"
         },
         {
             "Name": "自我恢復",
@@ -362,7 +387,8 @@
             "ArrowBuff": "",
             "ThrowBuff": "",
             "AvaRank": "C",
-            "MaxCost": "1"
+            "MaxCost": "1",
+            "AvaSide": "ALL"
         },
         {
             "Name": "潛行",
@@ -376,7 +402,8 @@
             "ArrowBuff": "",
             "ThrowBuff": "",
             "AvaRank": "C",
-            "MaxCost": "1"
+            "MaxCost": "1",
+            "AvaSide": "ALL"
         },
         {
             "Name": "防禦法陣",
@@ -390,7 +417,8 @@
             "ArrowBuff": "",
             "ThrowBuff": "",
             "AvaRank": "C",
-            "MaxCost": "1"
+            "MaxCost": "1",
+            "AvaSide": "ALL"
         },
         {
             "Name": "複合護甲",
@@ -404,7 +432,8 @@
             "ArrowBuff": "",
             "ThrowBuff": "",
             "AvaRank": "A",
-            "MaxCost": "1"
+            "MaxCost": "1",
+            "AvaSide": "ALL"
         },
         {
             "Name": "鎖喉",
@@ -418,7 +447,8 @@
             "ArrowBuff": "",
             "ThrowBuff": "",
             "AvaRank": "A",
-            "MaxCost": "1"
+            "MaxCost": "1",
+            "AvaSide": "ALL"
         },
         {
             "Name": "附魔抗性",
@@ -432,7 +462,8 @@
             "ArrowBuff": "",
             "ThrowBuff": "",
             "AvaRank": "C",
-            "MaxCost": "1"
+            "MaxCost": "1",
+            "AvaSide": "ALL"
         },
         {
             "Name": "致盲",
@@ -446,7 +477,8 @@
             "ArrowBuff": "",
             "ThrowBuff": "",
             "AvaRank": "A",
-            "MaxCost": "1"
+            "MaxCost": "1",
+            "AvaSide": "ALL"
         }
     ]
 }

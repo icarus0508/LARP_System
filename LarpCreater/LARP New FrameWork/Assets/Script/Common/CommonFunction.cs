@@ -66,7 +66,23 @@ public class CommonFunction : MonoBehaviour
         }
         return false;
     }
+    public static bool IsSideAve(string sideName, string avaSide)
+    {
+        if(avaSide == "ALL")
+        {
+            return true;
+        }
+        string[] avasides = avaSide.Split('/');
+        foreach(var sid in avasides)
+        {
+            if(sideName == sid)
+            {
+                return true;
+            }
+        }
 
+        return false;
+    }
     public static bool IsRankAve(string rank, string avarank)
     {
         if(rank =="N")

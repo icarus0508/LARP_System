@@ -21,9 +21,12 @@ public class Skill_info
     public string ThrowBuff;
     public string AvaRank;
     public string MaxCost ;
+    public string AvaSide;
 
     public int PreSkillIndex = -1;
     public int PostSkillIndex = -1;
+
+    
     
 
 }
@@ -42,6 +45,7 @@ public class Skill_Save_Info
     public string ThrowBuff;
     public string AvaRank;
     public string MaxCost;
+    public string AvaSide;
 }
 [System.Serializable]
 public class Skill_Save_Info_List
@@ -111,6 +115,7 @@ public class Skill_Info_Manager : MonoBehaviour
             tSkillInfo.ThrowBuff = result.Tables[set].Rows[i][9].ToString();
             tSkillInfo.AvaRank = result.Tables[set].Rows[i][10].ToString();
             tSkillInfo.MaxCost = result.Tables[set].Rows[i][11].ToString();
+            tSkillInfo.AvaSide = result.Tables[set].Rows[i][12].ToString();
             l_Skill_List.Add(tSkillInfo);
         }
 
@@ -132,6 +137,7 @@ public class Skill_Info_Manager : MonoBehaviour
             tSSI.ThrowBuff = s.ThrowBuff;
             tSSI.AvaRank = s.AvaRank;
             tSSI.MaxCost = s.MaxCost;
+            tSSI.AvaSide = s.AvaSide;
             tSSIL.SkillList.Add(tSSI);
         }
 
@@ -168,9 +174,10 @@ public class Skill_Info_Manager : MonoBehaviour
             tSkillInfo.ThrowBuff = result.Tables[set].Rows[i][9].ToString();
             tSkillInfo.AvaRank = result.Tables[set].Rows[i][10].ToString();
             tSkillInfo.MaxCost = result.Tables[set].Rows[i][11].ToString();
+            tSkillInfo.AvaSide = result.Tables[set].Rows[i][12].ToString();
 
-         //   Texture2D tex = CommonFunction.LoadPNG(Application.dataPath + SkillIconDirectionPath + tSkillInfo.ImageName+".png");
-         //   tSkillInfo.Image = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(0, 0));
+            //   Texture2D tex = CommonFunction.LoadPNG(Application.dataPath + SkillIconDirectionPath + tSkillInfo.ImageName+".png");
+            //   tSkillInfo.Image = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(0, 0));
 
             Skill_List.Add(tSkillInfo);
         }
@@ -242,6 +249,7 @@ public class Skill_Info_Manager : MonoBehaviour
             tSkillInfo.ThrowBuff = s.ThrowBuff;
             tSkillInfo.AvaRank = s.AvaRank;
             tSkillInfo.MaxCost = s.MaxCost;
+            tSkillInfo.AvaSide = s.AvaSide;
 
             Texture2D tex = CommonFunction.LoadPNG_FromResources("Images/Skill/" + tSkillInfo.ImageName);
             tSkillInfo.Image = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(0, 0));
@@ -272,6 +280,7 @@ public class Skill_Info_Manager : MonoBehaviour
             tSSI.ThrowBuff = s.ThrowBuff;
             tSSI.AvaRank = s.AvaRank;
             tSSI.MaxCost = s.MaxCost;
+            tSSI.AvaSide = s.AvaSide;
             tSSIL.SkillList.Add(tSSI);
         }
 
