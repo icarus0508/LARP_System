@@ -98,8 +98,16 @@ public class Classes_Info_Manager : MonoBehaviour
     public  void LoadJason()
     {
         DataIsReady = false;
-        var jsonTextFile = Resources.Load<TextAsset>("ClassesListJason");
-        Class_Save_Info_List tCSIL = JsonUtility.FromJson<Class_Save_Info_List>(jsonTextFile.text);
+
+        string filePath = Application.dataPath + "\\ClassesListJason.json";
+        FileStream JsonReader = File.Open(filePath, FileMode.Open);
+        StreamReader streamReader = new StreamReader(JsonReader);
+        string strData = streamReader.ReadToEnd();
+        JsonReader.Close();
+        Class_Save_Info_List tCSIL = JsonUtility.FromJson<Class_Save_Info_List>(strData);
+
+        //var jsonTextFile = Resources.Load<TextAsset>("ClassesListJason");
+        //Class_Save_Info_List tCSIL = JsonUtility.FromJson<Class_Save_Info_List>(jsonTextFile.text);
 
         classesBaseList.Clear();
         foreach(var c in tCSIL.classList)

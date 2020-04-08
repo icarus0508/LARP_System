@@ -230,8 +230,15 @@ public class Skill_Info_Manager : MonoBehaviour
     }
     public void LoadSkillFromJason()
     {
-        var jsonTextFile = Resources.Load<TextAsset>("SkillListJason");
-        Skill_Save_Info_List tSSIL = JsonUtility.FromJson<Skill_Save_Info_List>(jsonTextFile.text);
+        string filePath = Application.dataPath + "\\SkillListJason.json";
+        FileStream JsonReader = File.Open(filePath, FileMode.Open);
+        StreamReader streamReader = new StreamReader(JsonReader);
+        string strData = streamReader.ReadToEnd();
+        JsonReader.Close();
+        Skill_Save_Info_List tSSIL = JsonUtility.FromJson<Skill_Save_Info_List>(strData);
+
+        //var jsonTextFile = Resources.Load<TextAsset>("SkillListJason");
+        //Skill_Save_Info_List tSSIL = JsonUtility.FromJson<Skill_Save_Info_List>(jsonTextFile.text);
 
         Skill_List.Clear();
         foreach(var s in tSSIL.SkillList)
