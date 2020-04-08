@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "LARP Data Converter": {
+      "commandName": "Project",
+      "workingDirectory": "D:\\LARP Project\\LARP_System\\LarpCreater\\LARP BlueRed\\LARP DataConverter\\LARP Data Converter\\Excel"
+    }
+  }
+}

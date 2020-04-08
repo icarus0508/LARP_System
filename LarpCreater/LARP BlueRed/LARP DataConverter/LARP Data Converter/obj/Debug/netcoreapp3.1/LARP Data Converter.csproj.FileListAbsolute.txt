@@ -1,0 +1,15 @@
+D:\LARP Project\LARP_System\LarpCreater\LARP BlueRed\LARP DataConverter\LARP Data Converter\bin\Debug\netcoreapp3.1\LARP Data Converter.exe
+D:\LARP Project\LARP_System\LarpCreater\LARP BlueRed\LARP DataConverter\LARP Data Converter\bin\Debug\netcoreapp3.1\LARP Data Converter.deps.json
+D:\LARP Project\LARP_System\LarpCreater\LARP BlueRed\LARP DataConverter\LARP Data Converter\bin\Debug\netcoreapp3.1\LARP Data Converter.runtimeconfig.json
+D:\LARP Project\LARP_System\LarpCreater\LARP BlueRed\LARP DataConverter\LARP Data Converter\bin\Debug\netcoreapp3.1\LARP Data Converter.runtimeconfig.dev.json
+D:\LARP Project\LARP_System\LarpCreater\LARP BlueRed\LARP DataConverter\LARP Data Converter\bin\Debug\netcoreapp3.1\LARP Data Converter.dll
+D:\LARP Project\LARP_System\LarpCreater\LARP BlueRed\LARP DataConverter\LARP Data Converter\bin\Debug\netcoreapp3.1\LARP Data Converter.pdb
+D:\LARP Project\LARP_System\LarpCreater\LARP BlueRed\LARP DataConverter\LARP Data Converter\obj\Debug\netcoreapp3.1\LARP Data Converter.csprojAssemblyReference.cache
+D:\LARP Project\LARP_System\LarpCreater\LARP BlueRed\LARP DataConverter\LARP Data Converter\obj\Debug\netcoreapp3.1\LARP Data Converter.AssemblyInfoInputs.cache
+D:\LARP Project\LARP_System\LarpCreater\LARP BlueRed\LARP DataConverter\LARP Data Converter\obj\Debug\netcoreapp3.1\LARP Data Converter.AssemblyInfo.cs
+D:\LARP Project\LARP_System\LarpCreater\LARP BlueRed\LARP DataConverter\LARP Data Converter\obj\Debug\netcoreapp3.1\LARP Data Converter.dll
+D:\LARP Project\LARP_System\LarpCreater\LARP BlueRed\LARP DataConverter\LARP Data Converter\obj\Debug\netcoreapp3.1\LARP Data Converter.pdb
+D:\LARP Project\LARP_System\LarpCreater\LARP BlueRed\LARP DataConverter\LARP Data Converter\obj\Debug\netcoreapp3.1\LARP Data Converter.csproj.CopyComplete
+D:\LARP Project\LARP_System\LarpCreater\LARP BlueRed\LARP DataConverter\LARP Data Converter\bin\Debug\netcoreapp3.1\ExcelDataReader.dll
+D:\LARP Project\LARP_System\LarpCreater\LARP BlueRed\LARP DataConverter\LARP Data Converter\bin\Debug\netcoreapp3.1\ExcelDataReader.DataSet.dll
+D:\LARP Project\LARP_System\LarpCreater\LARP BlueRed\LARP DataConverter\LARP Data Converter\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
