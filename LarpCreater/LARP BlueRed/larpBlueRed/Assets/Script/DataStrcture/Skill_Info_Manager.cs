@@ -81,6 +81,23 @@ public class Skill_Info_Manager : MonoBehaviour
     public static Sprite Side_DNImg = null;
     public static Sprite Side_NTImg = null;
 
+    #region rank selected imgs
+    public static Sprite War_RankC_BtnImg = null;
+    public static Sprite War_RankB_BtnImg = null;
+    public static Sprite War_RankA_BtnImg = null;
+    public static Sprite War_RankS_BtnImg = null;
+
+    public static Sprite Arc_RankC_BtnImg = null;
+    public static Sprite Arc_RankB_BtnImg = null;
+    public static Sprite Arc_RankA_BtnImg = null;
+    public static Sprite Arc_RankS_BtnImg = null;
+
+    public static Sprite Mag_RankC_BtnImg = null;
+    public static Sprite Mag_RankB_BtnImg = null;
+    public static Sprite Mag_RankA_BtnImg = null;
+    public static Sprite Mag_RankS_BtnImg = null;
+    #endregion
+
 
     public bool DataIsReady = false;
    
@@ -227,6 +244,22 @@ public class Skill_Info_Manager : MonoBehaviour
         Side_JDImg = CreateSpriteByImg("Images/UI/" + "RaceAsia");
         Side_DNImg = CreateSpriteByImg("Images/UI/" + "RaceMonster");
         Side_NTImg = CreateSpriteByImg("Images/UI/" + "RaceEmpire");
+
+        War_RankC_BtnImg = CreateSpriteByImg("Images/UI/" + "按鈕_戰士C");
+        War_RankB_BtnImg = CreateSpriteByImg("Images/UI/" + "按鈕_戰士B");
+        War_RankA_BtnImg = CreateSpriteByImg("Images/UI/" + "按鈕_戰士A");
+        War_RankS_BtnImg = CreateSpriteByImg("Images/UI/" + "按鈕_戰士S");
+
+        Arc_RankC_BtnImg = CreateSpriteByImg("Images/UI/" + "按鈕_弓兵C");
+        Arc_RankB_BtnImg = CreateSpriteByImg("Images/UI/" + "按鈕_弓兵B");
+        Arc_RankA_BtnImg = CreateSpriteByImg("Images/UI/" + "按鈕_弓兵A");
+        Arc_RankS_BtnImg = CreateSpriteByImg("Images/UI/" + "按鈕_弓兵S");
+
+        Mag_RankC_BtnImg = CreateSpriteByImg("Images/UI/" + "按鈕_法師C");
+        Mag_RankB_BtnImg = CreateSpriteByImg("Images/UI/" + "按鈕_法師B");
+        Mag_RankA_BtnImg = CreateSpriteByImg("Images/UI/" + "按鈕_法師A");
+        Mag_RankS_BtnImg = CreateSpriteByImg("Images/UI/" + "按鈕_法師S");
+
     }
     public void LoadSkillFromJason()
     {

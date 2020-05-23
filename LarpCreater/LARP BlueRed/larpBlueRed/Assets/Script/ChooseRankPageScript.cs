@@ -40,6 +40,34 @@ public class ChooseRankPageScript : BasePageScript
         RankS_Btn.GetComponent<Image>().material = GrayScaleMat;
         RankN_Btn.GetComponent<Image>().material = GrayScaleMat;
 
+        if(playerInfo.Clasz == "W")
+        {
+
+            RankC_Btn.GetComponent<Image>().sprite = Skill_Info_Manager.War_RankC_BtnImg;
+            RankB_Btn.GetComponent<Image>().sprite = Skill_Info_Manager.War_RankB_BtnImg;
+            RankA_Btn.GetComponent<Image>().sprite = Skill_Info_Manager.War_RankA_BtnImg;
+            RankS_Btn.GetComponent<Image>().sprite = Skill_Info_Manager.War_RankS_BtnImg;
+        }
+
+        if (playerInfo.Clasz == "A")
+        {
+
+            RankC_Btn.GetComponent<Image>().sprite = Skill_Info_Manager.Arc_RankC_BtnImg;
+            RankB_Btn.GetComponent<Image>().sprite = Skill_Info_Manager.Arc_RankB_BtnImg;
+            RankA_Btn.GetComponent<Image>().sprite = Skill_Info_Manager.Arc_RankA_BtnImg;
+            RankS_Btn.GetComponent<Image>().sprite = Skill_Info_Manager.Arc_RankS_BtnImg;
+        }
+
+        if (playerInfo.Clasz == "M")
+        {
+
+            RankC_Btn.GetComponent<Image>().sprite = Skill_Info_Manager.Mag_RankC_BtnImg;
+            RankB_Btn.GetComponent<Image>().sprite = Skill_Info_Manager.Mag_RankB_BtnImg;
+            RankA_Btn.GetComponent<Image>().sprite = Skill_Info_Manager.Mag_RankA_BtnImg;
+            RankS_Btn.GetComponent<Image>().sprite = Skill_Info_Manager.Mag_RankS_BtnImg;
+        }
+
+
         if (playerInfo.Rank == "C")
         {
             RankC_Btn.GetComponent<Image>().material = DefaultMat;
