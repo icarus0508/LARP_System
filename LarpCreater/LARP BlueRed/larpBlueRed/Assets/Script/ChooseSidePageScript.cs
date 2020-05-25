@@ -94,7 +94,7 @@ public class ChooseSidePageScript : BasePageScript
 
     public void ChooseBlueIron()
     {
-        ChooseSided("BI");
+        ChooseSided("BL");
         BI_Btn.GetComponent<Image>().material = DefaultMat;
         AD_Btn.GetComponent<Image>().material = GrayScaleMat;
         JD_Btn.GetComponent<Image>().material = GrayScaleMat;

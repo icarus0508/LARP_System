@@ -171,7 +171,7 @@ public class CreatePlayerScript : BasePageScript
 
     private bool IsReadyToNextPage()
     {
-        if (playerInfo.Name =="")
+        if (playerInfo.Name =="" || TargetImage_GO.GetComponent<Image>().sprite==null)
         {
             return false;
         }
