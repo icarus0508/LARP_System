@@ -78,7 +78,8 @@ public class ChooseSkillPageScript : BasePageScript
     public void ShowDetailPresent(int indexOfSkill)
     {
         DetailPresenterGO.SetActive(true);
-        DetailPresenterGO.GetComponentInChildren<Text>().text = Skill_Info_Manager.Skill_List[indexOfSkill].DetailDescription;
+        DetailPresenterGO.transform.Find("detail").GetComponent<Text>().text = Skill_Info_Manager.Skill_List[indexOfSkill].DetailDescription;
+        DetailPresenterGO.transform.Find("Title").GetComponent<Text>().text = Skill_Info_Manager.Skill_List[indexOfSkill].Name;
     }
     void InitialSkillList()
     {

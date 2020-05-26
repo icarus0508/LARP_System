@@ -60,8 +60,7 @@ public class Skill_Save_Info_List
 
 public class Skill_Info_Manager : MonoBehaviour
 {
-    private string SkillIconDirectionPath = "\\Images\\Skill\\";
-   // private string UIDirectionPath = "\\Images\\UI\\";
+
     static public List<Skill_info> Skill_List = new List<Skill_info>();
     public static Sprite W_ClaszImg = null;
     public static Sprite A_ClaszImg = null;
@@ -192,9 +191,6 @@ public class Skill_Info_Manager : MonoBehaviour
             tSkillInfo.AvaRank = result.Tables[set].Rows[i][10].ToString();
             tSkillInfo.MaxCost = result.Tables[set].Rows[i][11].ToString();
             tSkillInfo.AvaSide = result.Tables[set].Rows[i][12].ToString();
-
-            //   Texture2D tex = CommonFunction.LoadPNG(Application.dataPath + SkillIconDirectionPath + tSkillInfo.ImageName+".png");
-            //   tSkillInfo.Image = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(0, 0));
 
             Skill_List.Add(tSkillInfo);
         }
