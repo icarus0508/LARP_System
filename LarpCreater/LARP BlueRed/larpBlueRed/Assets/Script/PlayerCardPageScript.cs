@@ -40,6 +40,8 @@ public class PlayerCardPageScript : BasePageScript
     public GameObject CompletedPlayerCardBtn;
     private string playerPath = "/PlayerData";
 
+    public GameObject BackToFirstPage ;
+
 
     // Start is called before the first frame update
     void Start()
@@ -471,5 +473,11 @@ public class PlayerCardPageScript : BasePageScript
     public void OnClickCompletedPlayerCardBtn()
     {
         CompletedPlayerCardBtn.SetActive(false);
+    }
+
+    public void OnClickBackToTopPageBtn()
+    {
+        this.NextPage = BackToFirstPage;
+        TransmitPage_GO.GetComponentInChildren<TransmitPageScript>(true).NextPage();
     }
 }

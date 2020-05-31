@@ -237,6 +237,8 @@ public class ChooseSkillPageScript : BasePageScript
 
             playerInfo.SuperPointAva = int.Parse(tCI.baseSurperSkillPoint);
             playerInfo.SuperPointAvaMax = playerInfo.SuperPointAva;
+
+            OnResetSkillPoint();
         }
     }
 
