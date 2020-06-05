@@ -200,6 +200,11 @@ public class PlayerCardPageScript : BasePageScript
     }
     public void InitialHPBar()
     {
+        foreach (Transform child in HPBarGO.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+
         int teSizX = -124;
         for (int i=0;i<playerInfo.HP;i++)
         {

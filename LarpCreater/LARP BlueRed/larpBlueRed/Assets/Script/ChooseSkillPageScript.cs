@@ -152,47 +152,7 @@ public class ChooseSkillPageScript : BasePageScript
     // Start is called before the first frame update
     void Start()
     {
-        // TestScrollBar();
-        InitialSkillList();
 
-       // if(playerInfo.Rank =="S")
-        if(playerInfo.SuperPointAvaMax!=0)
-        {
-            ChangeToSBtnGO.SetActive(true);
-        }
-        else
-        {
-            ChangeToSBtnGO.SetActive(false);
-        }
-
-        switch(playerInfo.Clasz)
-        {
-            case "W":
-                WClaszGO.SetActive(true);
-                AClaszGO.SetActive(false);
-                MClaszGO.SetActive(false);
-                VClaszGO.SetActive(false);
-                break;
-            case "A":
-                WClaszGO.SetActive(false);
-                AClaszGO.SetActive(true);
-                MClaszGO.SetActive(false);
-                VClaszGO.SetActive(false);
-                break;
-            case "M":
-                WClaszGO.SetActive(false);
-                AClaszGO.SetActive(false);
-                MClaszGO.SetActive(true);
-                VClaszGO.SetActive(false);
-                break;
-            case "N":
-            default:
-                WClaszGO.SetActive(false);
-                AClaszGO.SetActive(false);
-                MClaszGO.SetActive(false);
-                VClaszGO.SetActive(true);
-                break;
-        }
     }
 
     // Update is called once per frame
@@ -240,6 +200,8 @@ public class ChooseSkillPageScript : BasePageScript
 
             OnResetSkillPoint();
         }
+
+ 
     }
 
     private void OnDisable()
@@ -248,25 +210,71 @@ public class ChooseSkillPageScript : BasePageScript
     }
     public void OnResetSkillPoint()
     {
-        for(int i=0;i<ScrollViewContentGO.transform.childCount;i++)
+
+
+        foreach (Transform child in ScrollViewContentGO.transform)
         {
-            ScrollViewContentGO.transform.GetChild(i).GetComponentInChildren<SkillButtonScript>().Reset();
+            GameObject.Destroy(child.gameObject);
         }
 
-        for (int i = 0; i < NormalSkillListGo.transform.childCount; i++)
+        foreach (Transform child in NormalSkillListGo.transform)
         {
-            NormalSkillListGo.transform.GetChild(i).GetComponentInChildren<SkillButtonScript>().Reset();
+            GameObject.Destroy(child.gameObject);
         }
 
-        for (int i = 0; i < SRankSkillListGo.transform.childCount; i++)
+
+
+        foreach (Transform child in SRankSkillListGo.transform)
         {
-            SRankSkillListGo.transform.GetChild(i).GetComponentInChildren<SkillButtonScript>().Reset();
+            GameObject.Destroy(child.gameObject);
         }
 
         playerInfo.SkillIndexes.Clear();
 
         playerInfo.skillPointAva = playerInfo.skillPointAvaMax;
         playerInfo.SuperPointAva = playerInfo.SuperPointAvaMax;
+
+
+        InitialSkillList();
+
+        // if(playerInfo.Rank =="S")
+        if (playerInfo.SuperPointAvaMax != 0)
+        {
+            ChangeToSBtnGO.SetActive(true);
+        }
+        else
+        {
+            ChangeToSBtnGO.SetActive(false);
+        }
+
+        switch (playerInfo.Clasz)
+        {
+            case "W":
+                WClaszGO.SetActive(true);
+                AClaszGO.SetActive(false);
+                MClaszGO.SetActive(false);
+                VClaszGO.SetActive(false);
+                break;
+            case "A":
+                WClaszGO.SetActive(false);
+                AClaszGO.SetActive(true);
+                MClaszGO.SetActive(false);
+                VClaszGO.SetActive(false);
+                break;
+            case "M":
+                WClaszGO.SetActive(false);
+                AClaszGO.SetActive(false);
+                MClaszGO.SetActive(true);
+                VClaszGO.SetActive(false);
+                break;
+            case "N":
+            default:
+                WClaszGO.SetActive(false);
+                AClaszGO.SetActive(false);
+                MClaszGO.SetActive(false);
+                VClaszGO.SetActive(true);
+                break;
+        }
     }
 
     public void OnChangeRank()
