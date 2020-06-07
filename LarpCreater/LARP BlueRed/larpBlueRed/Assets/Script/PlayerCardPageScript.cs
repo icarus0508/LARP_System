@@ -214,13 +214,14 @@ public class PlayerCardPageScript : BasePageScript
             teSizX += 24;
         }
 
-        if(playerInfo.Sided!="NT")
-        {
-            GameObject tSpecitlGO = Instantiate(PrefabsHPBarEelelment, new Vector2(teSizX, 0), Quaternion.identity);
-            tSpecitlGO.transform.SetParent(HPBarGO.transform, false);
-            tSpecitlGO.transform.GetChild(0).gameObject.SetActive(false);
-            tSpecitlGO.transform.GetChild(1).gameObject.SetActive(true);
-        }
+        ////for additional HP
+        //if(playerInfo.Sided!="NT")
+        //{
+        //    GameObject tSpecitlGO = Instantiate(PrefabsHPBarEelelment, new Vector2(teSizX, 0), Quaternion.identity);
+        //    tSpecitlGO.transform.SetParent(HPBarGO.transform, false);
+        //    tSpecitlGO.transform.GetChild(0).gameObject.SetActive(false);
+        //    tSpecitlGO.transform.GetChild(1).gameObject.SetActive(true);
+        //}
 
         
 
@@ -242,10 +243,12 @@ public class PlayerCardPageScript : BasePageScript
         CalutlateFinialPlayerProperty();
 
         HPGO.transform.GetChild(0).GetComponent<Text>().text = playerInfo.HP.ToString();
-        if (playerInfo.Sided != "NT")
-        {
-            HPGO.transform.GetChild(0).GetComponent<Text>().text += "+1";
-        }
+
+        //Additional HP
+        //if (playerInfo.Sided != "NT")
+        //{
+        //    HPGO.transform.GetChild(0).GetComponent<Text>().text += "+1";
+        //}
 
         ThorwGO.transform.GetChild(0).GetComponent<Text>().text = playerInfo.ThrowCount.ToString();
 
