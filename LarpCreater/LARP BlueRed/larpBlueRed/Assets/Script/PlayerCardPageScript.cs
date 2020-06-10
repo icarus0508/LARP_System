@@ -448,9 +448,10 @@ public class PlayerCardPageScript : BasePageScript
 
     public void SendEmailToServer()
     {
-        string _sender = "sky_and_blood@outlook.com";
+      //  string _sender = "sky_and_blood@outlook.com";
+        string _sender = "sky0and0blood@gmail.com";
         string _password = "larp12345";
-        string _target = "sky_and_blood@outlook.com";
+        string _target = _sender;
 
         MailMessage mail = new MailMessage();
         mail.From = new MailAddress(_sender);
@@ -469,12 +470,13 @@ public class PlayerCardPageScript : BasePageScript
 
 
         //SmtpClient smtpClient = new SmtpClient("smtp.live.com");
-       // SmtpClient client = new SmtpClient("smtp.gmail.com");
-        SmtpClient smtpClient = new SmtpClient("smtp-mail.outlook.com");
+         SmtpClient smtpClient = new SmtpClient("smtp.gmail.com");
+      //  SmtpClient smtpClient = new SmtpClient("smtp-mail.outlook.com");
+       //// SmtpClient smtpClient = new SmtpClient("smtp.office365.com");
         smtpClient.Port = 587;
         smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
         smtpClient.UseDefaultCredentials = false;
-        smtpClient.Credentials = new System.Net.NetworkCredential(_sender, _target) as ICredentialsByHost;
+        smtpClient.Credentials = new System.Net.NetworkCredential(_sender, _password) as ICredentialsByHost;
         smtpClient.EnableSsl = true;
         ServicePointManager.ServerCertificateValidationCallback =
             delegate (object s, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
